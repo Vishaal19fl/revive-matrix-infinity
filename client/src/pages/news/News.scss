@@ -1,19 +1,53 @@
 .feed-display {
-    display: flex;
-  
-    .sidebar {
-      flex: 0 0 250px; 
-      background-color: #f4f4f4; 
-      padding: 20px;
-    }
-  
-    .content {
-      flex: 1;
-      padding: 20px;
-  
-      > * {
-        margin-bottom: 20px;
-      }
+  display: flex;
+  flex-direction: row; /* Default layout: sidebar + content */
+
+  .sidebar {
+    flex: 0 0 250px; 
+    background-color: #f4f4f4; 
+    padding: 20px;
+  }
+
+  .content {
+    flex: 1;
+    padding: 20px;
+
+    > * {
+      margin-bottom: 20px;
     }
   }
-  
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack the sidebar and content for smaller screens */
+    
+    .sidebar {
+      flex: 0 0 auto; /* Sidebar takes full width */
+      width: 100%;
+      padding: 15px;
+    }
+
+    .content {
+      flex: 1;
+      width: 100%;
+      padding: 15px;
+    }
+
+    .MuiPaper-root {
+      width: 100%; /* Ensure Paper component takes full width */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .sidebar {
+      padding: 10px; /* Reduce padding for even smaller screens */
+    }
+
+    .content {
+      padding: 10px; /* Reduce padding for even smaller screens */
+    }
+
+    .MuiTypography-root {
+      font-size: 0.875rem; /* Reduce font size for smaller screens */
+    }
+  }
+}

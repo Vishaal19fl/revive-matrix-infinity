@@ -1,0 +1,52 @@
+// NewsMap.scss
+
+.news-map-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+  
+    .leaflet-container {
+      border-radius: 12px !important;
+    }
+  
+    // Make the map responsive on small screens
+    @media (max-width: 768px) {
+      height: 300px; // Reduce map height on smaller screens
+    }
+  
+    // On very small screens, such as mobile phones in portrait mode
+    @media (max-width: 480px) {
+      height: 250px; // Further reduce map height on mobile phones
+    }
+  }
+  
+  .popup-content {
+    border-radius: 8px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.85);
+    max-width: 250px; // Set a max-width for the popup content
+  
+    // Ensure text doesn't overflow
+    word-wrap: break-word;
+  
+    // Make the link text responsive
+    a {
+      font-size: 14px; // Slightly smaller text size on mobile
+      word-break: break-word;
+    }
+  
+    @media (max-width: 768px) {
+      max-width: 200px; // Reduce max-width on smaller screens
+    }
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  

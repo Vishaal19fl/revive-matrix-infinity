@@ -128,13 +128,18 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
 
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              Analytics
-            </Typography>
+<Typography
+  variant="h6"
+  fontWeight="bold"
+  color={colors.grey[300]}
+  sx={{
+    m: "15px 0 5px 20px",
+    fontSize: { xs: '0.7rem', sm: '0.7rem' }, // Font size for mobile and larger screens
+  }}
+>
+  Analytics
+</Typography>
+
             {/* <Item
               title="Manage Team"
               to="/team"

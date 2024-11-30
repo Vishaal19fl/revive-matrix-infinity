@@ -4,6 +4,7 @@ import Sidebar from '../../scenes/global/Sidebar';
 import Header from '../../components/Header';
 import NewsSlider from '../../components/newsSlider/NewsSlider';
 import newRequest from '../../utils/newRequest';
+import NewsMap from './NewsMap';
 
 const Dashboard = () => {
   const [currentTab, setCurrentTab] = React.useState('socialMedia');
@@ -28,23 +29,48 @@ const Dashboard = () => {
   };
 
   const socialMediaData = [
-    { id: 1, platform: "Twitter", content: "Huge flood alert in Chennai. Be prepared!", timestamp: "2024-08-22T12:00:00Z" },
-    { id: 2, platform: "Facebook", content: "Heavy rainfall expected tomorrow. Take necessary precautions.", timestamp: "2024-08-22T13:00:00Z" },
+    { 
+      id: 1, 
+      platform: "Twitter", 
+      content: "Huge flood alert in Chennai. Be prepared!", 
+      timestamp: "2024-08-22T12:00:00Z", 
+      location: { lat: 13.0827, lng: 80.2707 } 
+    },
+    { 
+      id: 2, 
+      platform: "Facebook", 
+      content: "Heavy rainfall expected tomorrow. Take necessary precautions.", 
+      timestamp: "2024-08-22T13:00:00Z", 
+      location: { lat: 12.8352, lng: 79.7063 }
+    },
   ];
+  
 
   const newsFeedData = [
     { id: 1, headline: "Flood Warning Issued for Chennai", source: "Local News", timestamp: "2024-08-22T11:00:00Z" },
     { id: 2, headline: "Government Prepares for Potential Flooding", source: "National News", timestamp: "2024-08-22T12:30:00Z" },
   ];
+  const newsItems = {
+    socialMedia: socialMediaData,
+    newsFeed: newsFeedData,
+    otherSites: otherSitesData
+  };
 
   return (
     <Box display="flex">
       {/* SIDEBAR */}
       <Sidebar />
 
-      <Box flexGrow={1} m="30px">
+      <Box 
+  flexGrow={1} 
+  m="30px" 
+  sx={{ 
+    marginRight: { xs: "10px", sm: "30px" } // 10px on mobile, 30px on larger screens
+  }}
+>
         <Header title="AGGREGATED DATA" subtitle="Keep yourself updated with the latest news" titleSize="h4" />
-        
+        <NewsMap newsItems={newsItems} />
+        <br/>
         <Paper>
           <Tabs
             value={currentTab}

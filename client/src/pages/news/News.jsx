@@ -47,7 +47,7 @@ const Dashboard = () => {
   
 
   const newsFeedData = [
-    { id: 1, headline: "Flood Warning Issued for Chennai", source: "Local News", timestamp: "2024-08-22T11:00:00Z" },
+    { id: 1, headline: "Flood Warning Issued for Chennai", source: "Local News", timestamp: "2024-08-22T11:00:00Z",location: { lat: 12.8333, lng: 80.1833 } },
     { id: 2, headline: "Government Prepares for Potential Flooding", source: "National News", timestamp: "2024-08-22T12:30:00Z" },
   ];
   const newsItems = {

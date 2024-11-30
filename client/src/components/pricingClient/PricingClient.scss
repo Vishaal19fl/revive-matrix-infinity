@@ -1,0 +1,160 @@
+.pricing-page {
+    padding: 40px; /* Overall padding for the page */
+    max-width: 1200px; /* Limit the maximum width of the page */
+    margin: auto; /* Center the content horizontally */
+    text-align: center; /* Center the content */
+    background: #004aad;
+    border-radius: 15px;
+    margin-top: 60px;
+    margin-bottom: 8cqb;
+  
+    /* Header adjustments */
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 30px;
+  
+      h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 30px;
+      }
+  
+      p {
+        width: 60%; /* Keep this width */
+        margin: 0 auto; /* Center the paragraph */
+        font-size: 1rem; 
+        color: rgb(199, 199, 199);
+      }
+  
+      .toggle-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+        padding: 30px;
+  
+        label {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+  
+          span {
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 0 20px;
+            color: #fff;
+          }
+        }
+  
+        .toggle-switch {
+          width: 55px;
+          height: 27px;
+          border-radius: 15px;
+          background: #010851;
+          transition: background 0.3s;
+  
+          .toggle-thumb {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+            background: #fff;
+  
+            &.toggle-thumb-yearly {
+              transform: translateX(30px);
+            }
+          }
+  
+          
+          
+        }
+        input[type="checkbox"] {
+            display: none;
+          }
+      }
+    }
+  
+    /* Pricing grid */
+    .pricing-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+
+      .price{
+        font-weight: 600;
+      }
+    }
+  
+    /* Pricing cards */
+    .pricing-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      background: #f9f9f9;
+      flex: 1;
+      min-width: 200px;
+      max-width: 500px;
+  
+      h3 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+  
+      p {
+        font-size: 1rem;
+        color: gray;
+      }
+  
+      ul {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+        margin: 20px 0;
+  
+        li {
+          margin-bottom: 10px;
+          display: flex;
+          align-items: center;
+        }
+      }
+  
+      .get-started {
+        background: #010851;
+        border: 1px solid #010851;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: all 0.3s;
+  
+        &:hover {
+          background: white;
+          color: #010851;
+        }
+      }
+    }
+  
+    /* Mobile responsiveness adjustments */
+    @media (max-width: 768px) {
+      .pricing-page {
+        padding: 20px; /* Reduce padding for smaller screens */
+        border-radius: 0%;
+      }
+  
+      .pricing-grid {
+        flex-direction: column; /* Switch to single column */
+        align-items: center; /* Center cards vertically */
+      }
+  
+      .pricing-card {
+        max-width: 90%; /* Adjust width to fit mobile screens */
+        padding: 15px; /* Adjust padding */
+      }
+    }
+  }
+  

@@ -1,0 +1,9 @@
+.dashboard {
+  .chart-container {
+    canvas{
+      width: 40%; // Adjust the width as needed
+      height: 300px; // Adjust the height as needed
+      margin: 0 auto; // Center the chart container horizontally
+    }
+  }
+}

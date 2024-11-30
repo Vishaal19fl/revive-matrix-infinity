@@ -1,0 +1,31 @@
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+  
+  .marquee__inner {
+    display: flex;
+    animation: marquee linear infinite;
+  }
+  
+  @keyframes marquee {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .marquee-item {
+    display: inline-block;
+    width: auto; /* Ensure each item is only as wide as its content */
+    margin-right: 0; /* Remove margin between items */
+  }
+  
+  .marquee-image {
+    width: 100%;
+    height: auto;
+  }
+  

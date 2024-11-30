@@ -1,0 +1,34 @@
+/* NewsSlider.css */
+.news-slider{
+    margin:0px auto;
+}
+
+.slick-prev, .slick-next {
+    width: 25px;
+    height: 25px;
+   
+    background-color: black; /* Change the arrow background to black */
+    border-radius: 50%;
+  }
+  
+  .slick-prev:before, .slick-next:before {
+    color: white; /* Change arrow color to white */
+  }
+  
+  .slick-prev {
+    left: 10px;
+  }
+  
+  .slick-next {
+    right: 10px;
+  }
+  
+  .slick-slide {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .slick-track {
+    width: 100%;
+  }
+  

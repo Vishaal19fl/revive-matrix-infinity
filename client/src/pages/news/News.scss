@@ -1,0 +1,19 @@
+.feed-display {
+    display: flex;
+  
+    .sidebar {
+      flex: 0 0 250px; 
+      background-color: #f4f4f4; 
+      padding: 20px;
+    }
+  
+    .content {
+      flex: 1;
+      padding: 20px;
+  
+      > * {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  

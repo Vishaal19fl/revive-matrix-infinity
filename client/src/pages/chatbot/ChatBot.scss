@@ -1,0 +1,120 @@
+body{
+  background-color: rgb(250, 250, 250);
+  .text-zinc-500{
+    color: rgb(250, 250, 250);
+  }
+
+}
+
+.gemini-chat-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(250, 250, 250);
+
+    .black-bar {
+      height: 20px; /* Adjust height as needed */
+      width: 100%;
+      background-color: rgb(250, 250, 250);
+      margin-top: -30px;
+    }
+    
+    footer {
+      display: none;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px; 
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: rgb(162, 53, 20); 
+        border-radius: 5px; 
+      }
+
+      ::-webkit-scrollbar-track {
+        background-color: #f0f0f0; 
+      }
+
+    .chatbot-response{
+        font-weight: normal;
+    }
+  
+    .chat-history {
+      width: 70%;
+      min-height: 400px;
+      max-height: 500px;
+      overflow-y: auto;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+  
+      .message {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+  
+        &.user {
+          justify-content: flex-end;
+        }
+  
+        &.model {
+          justify-content: flex-start;
+        }
+  
+        .avatar {
+          width: 30px;
+          height: 30px;
+          margin-right: 10px;
+          border-radius: 50%;
+        }
+  
+        p {
+          padding: 5px 10px;
+          background-color: #f0f0f0;
+          border-radius: 10px;
+          display: inline-block;
+          max-width: 70%;
+          word-wrap: break-word;
+        }
+      }
+    }
+  
+    .input-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+  
+      input[type='text'] {
+        flex: 1;
+        padding: 30px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+  
+      button {
+        padding: 10px 20px;
+        background-color: #004aad;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+  
+        &:disabled {
+          background-color: #ccc;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  
+  

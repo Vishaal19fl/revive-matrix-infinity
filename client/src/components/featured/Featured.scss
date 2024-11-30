@@ -1,0 +1,192 @@
+.featured {
+  height: 680px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  color: white;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    height: 700px;
+    .desktop {
+      display: none; // Hide desktop video on mobile screens
+    }
+}
+
+@media (min-width: 769px) {
+  .mobile {
+    display: none; // Hide mobile video on desktop screens
+  }
+}
+
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100px; /* Adjust the height as needed */
+  //   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 20%, #ffffff 90%);
+  //   pointer-events: none;
+  //   z-index: 1; /* Ensure the gradient is behind other content */
+  // }
+  
+  .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      
+  }
+
+  .container {
+      width: 1400px;
+      margin: 0 auto; // Centering the container
+      display: flex;
+      align-items: center;
+      
+
+      // Media Query for smaller screens
+      @media (max-width: 768px) {
+          flex-direction: column;
+          width: 100%;
+          padding: 0 20px;
+          align-items: stretch;
+          margin-top:120px ;
+      }
+
+      .left {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+          
+
+          .btn{
+              border: none;
+          }
+
+          @media (max-width: 768px) {
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+          }
+
+          // Adjust font size for smaller screens
+          h1 {
+              font-size: 50px;
+
+              span {
+                  font-style: italic;
+                  font-weight: 300;
+                }
+              @media (max-width: 768px) {
+                  font-size: 30px;
+                  margin-top: 120px;
+                  text-align: center;
+              }
+          }
+
+          .search {
+              background-color: white;
+              border-radius: 5px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              overflow: hidden;
+
+              @media (max-width: 768px) {
+                width: 100%;
+                overflow: hidden;
+                
+                .searchInput {
+                  justify-content: center; /* Center items horizontally */
+                  width: auto;
+                }
+              
+                .searchInput img {
+                  margin: 5px; /* Decrease margin for smaller screens */
+                }
+              }
+      
+              .searchInput {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                img {
+                  width: 20px;
+                  height: 20px;
+                  margin: 10px;
+                }
+      
+                input {
+                  border: none;
+                  outline: none;
+      
+                  &::placeholder {
+                    color: gray;
+                  }
+                }
+              }
+          }    
+          button{
+              width: 120px;
+              height: 50px;
+              border: none;
+              background-color: #004AAD;
+              color: white;
+              align-self: flex-end;
+              cursor: pointer;
+              @media (max-width: 768px) {
+                  justify-content: center;
+                  align-items: center;
+                  text-align: center;
+                  margin-top: 0px;
+              }
+          }
+
+          .popular {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              @media (max-width: 768px) {
+                display: none;
+            }
+      
+              span {
+                width: max-content;
+              }
+      
+              button {
+                width: max-content;
+                color: white;
+                border: 1px solid white;
+                padding: 0px 30px;
+                border-radius: 15px;
+                background-color: transparent;
+                font-size: 14px;
+              }
+            }
+      }
+
+      .right {
+          height: 100%;
+
+          img {
+              height: 100%;
+              object-fit: contain;
+
+              // Adjust image size for smaller screens
+              @media (max-width: 768px) {
+                  width: 100%;
+                  height: auto;
+                  margin-top: 34px;
+                  
+              }
+          }
+      }
+  }
+}

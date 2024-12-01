@@ -1,5 +1,5 @@
-import React from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import React, { useEffect, useRef } from "react";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -11,13 +11,41 @@ const GeographyChart = () => {
       coordinates: [13.0827, 80.2707], // Latitude and Longitude of Chennai
     },
     {
-      name: "Odisha",
-      coordinates: [20.9517, 85.0985], // Latitude and Longitude of Odisha
+      name: "Kanchipuram",
+      coordinates: [12.8312, 79.7099], // Latitude and Longitude of Odisha
     },
   ];
 
+  const mapRef = useRef();
+
+  useEffect(() => {
+    const loadRouting = async () => {
+      const LRM = await import("leaflet-routing-machine");
+
+      const map = mapRef.current;
+
+      if (map) {
+        // Add routing control to the map with two waypoints
+        LRM.Routing.control({
+          waypoints: [
+            LRM.latLng(13.0827, 80.2707), // Chennai
+            LRM.latLng(20.9517, 85.0985), // Odisha
+          ],
+          createMarker: () => null, // To prevent markers from appearing at waypoints
+        }).addTo(map);
+      }
+    };
+
+    loadRouting();
+  }, []);
+
   return (
-    <MapContainer center={[20.5937, 78.9629]} zoom={3.5} style={{ width: "100%", height: "200px" }}>
+    <MapContainer
+      ref={mapRef}
+      center={[20.5937, 78.9629]}
+      zoom={5}
+      style={{ width: "100%", height: "200px" }}
+    >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

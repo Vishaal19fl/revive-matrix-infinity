@@ -44,6 +44,7 @@ import { LogisticDetails } from "./pages/logisticDetails/LogisticDetails";
 import Map from "./pages/map/Map";
 import { ShelterDetails } from "./pages/shelterPage/Shelterpage";
 import News from "./pages/news/News";
+// import MapComponent from "./components/mapRoute/MapRoute";
 function App() {
   const queryClient = new QueryClient();
   const [theme, colorMode] = useMode();
@@ -232,6 +233,10 @@ function App() {
           path: '/news',
           element: <News />,
         },
+        // {
+        //   path: '/maproute',
+        //   element: <MapComponent />,
+        // },
       ],
     },
   ]);

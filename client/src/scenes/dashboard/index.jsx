@@ -118,7 +118,7 @@ console.log(inventoryItems);
   sx={{
     borderRadius: "15px",
     overflow: "hidden",
-    background: "rgba(255, 255, 255, 0.1)",
+    background: 'linear-gradient(40deg, rgba(255, 255, 255, 1) 0%,rgba(255, 241, 203, 0.8) 100%)',
     backdropFilter: "blur(10px)",
     boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
     border: "1px solid rgba(255, 255, 255, 0.3)",
@@ -147,7 +147,7 @@ console.log(inventoryItems);
   sx={{
     borderRadius: "15px",
     overflow: "hidden",
-    background: "rgba(255, 255, 255, 0.1)",
+    background: 'linear-gradient(40deg, rgba(255, 255, 255, 1) 0%,rgba(255, 240, 203, 0.8) 100%)',
     backdropFilter: "blur(10px)",
     boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
     border: "1px solid rgba(255, 255, 255, 0.3)",
@@ -174,7 +174,7 @@ console.log(inventoryItems);
   sx={{
     borderRadius: "15px",
     overflow: "hidden",
-    background: "rgba(255, 255, 255, 0.1)",
+    background: 'linear-gradient(40deg, rgba(255, 255, 255, 1) 0%,rgba(255, 240, 203, 0.8) 100%)',
     backdropFilter: "blur(10px)",
     boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
     border: "1px solid rgba(255, 255, 255, 0.3)",
@@ -201,7 +201,7 @@ console.log(inventoryItems);
   sx={{
     borderRadius: "15px",
     overflow: "hidden",
-    background: "rgba(255, 255, 255, 0.1)",
+    background: 'linear-gradient(40deg, rgba(255, 255, 255, 1) 0%, rgba(255, 240, 203, 0.8) 100%)',
     backdropFilter: "blur(10px)",
     boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
     border: "1px solid rgba(255, 255, 255, 0.3)",
@@ -223,13 +223,14 @@ console.log(inventoryItems);
 
         {/* ROW 2 */}
         <Box
-          gridColumn={isMobile ? 'span 12' : 'span 8'}
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          sx={{
-            borderRadius: "10px"
-          }}
-        >
+  gridColumn={isMobile ? 'span 12' : 'span 8'}
+  gridRow="span 2"
+  sx={{
+    borderRadius: "10px",
+    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+    background: "linear-gradient(40deg, rgba(255, 250, 210, 0.1) 0%, rgba(255, 240, 203, 0.4) 100%)",
+  }}
+>
           <Box
             mt="25px"
             p="0 30px"
@@ -276,6 +277,11 @@ console.log(inventoryItems);
   <Box
     display="flex"
     justifyContent="space-between"
+    sx={{
+      background: "linear-gradient(40deg, rgba(255, 250, 210, 0.1) 0%, rgba(255, 240, 203, 0.4) 100%)",
+      boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+    }}
+    
     alignItems="center"
     borderBottom={`4px solid ${colors.primary[500]}`}
     colors={colors.grey[100]}
@@ -337,7 +343,9 @@ console.log(inventoryItems);
           backgroundColor={colors.primary[400]}
           p="30px"
           sx={{
-            borderRadius: "10px"
+            borderRadius: "10px",
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+            background: "linear-gradient(40deg, rgba(255, 250, 250, 0.1) 0%, rgba(255, 240, 203, 0.4) 100%)",
           }}
         >
           <Typography variant="h5" fontWeight="600">
@@ -366,7 +374,9 @@ console.log(inventoryItems);
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           sx={{
-            borderRadius: "10px"
+            borderRadius: "10px",
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+            background: "linear-gradient(40deg, rgba(255, 250, 210, 0.1) 0%, rgba(255, 240, 203, 0.4) 100%)",
           }}
         >
           <Typography
@@ -386,8 +396,10 @@ console.log(inventoryItems);
           backgroundColor={colors.primary[400]}
           padding="30px"
           sx={{
-            borderRadius: "10px"
-          }}
+            borderRadius: "10px",
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+            background: "linear-gradient(40deg, rgba(255, 250, 210, 0.1) 0%, rgba(255, 240, 203, 0.4) 100%)",
+          }} 
         >
           <Typography
             variant="h5"

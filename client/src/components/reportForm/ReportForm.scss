@@ -1,0 +1,68 @@
+.event-report-form {
+    max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  background: #e0e0e0; // Light grey for neomorphism
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2), -10px -10px 20px #ffffff;
+  @media (max-width: 768px) {
+    max-width: 300px;
+  }
+  
+ 
+  
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+  
+    form {
+      .form-group {
+        margin-bottom: 15px;
+  
+        label {
+          display: block;
+          margin-bottom: 5px;
+          color: #555;
+          font-weight: 600;
+        }
+  
+        input,
+        textarea {
+          width: 95%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 16px;
+          outline: none;
+  
+          &:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+          }
+        }
+  
+        textarea {
+          resize: none;
+        }
+      }
+  
+      .submit-button {
+        width: 97%;
+        padding: 10px;
+        background: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+  
+        &:hover {
+          background: #0056b3;
+        }
+      }
+    }
+  }
+  

@@ -18,6 +18,7 @@ import Marquee from "react-fast-marquee";
 import { ShelterCard } from "../../components/shelterCard/ShelterCard";
 import { LogisticCard } from "../../components/logisticCard/LogisticCard";
 import NewsSlider from "../../components/newsSlider/NewsSlider";
+import ReportForm from "../../components/reportForm/ReportForm";
 
 
 function Home() {
@@ -218,9 +219,9 @@ function Home() {
       </div>
     </div>
   </div>
+  
 )}
 
-  
 
      
 
@@ -228,12 +229,12 @@ function Home() {
   <div className="features dark">
     <div className="container">
       <div className="item">
-        <h1>Enhance Disaster Response with LifeLine</h1>
-        <img src="./img/lifelinefront.png" alt="" />
+        <h1>Enhance Disaster Response with <strong>Revive.</strong></h1>
+        <img src="./img/revivead.png" alt="" />
       </div>
       <div className="item">
         <h1>
-          LifeLine: Empowering Communities, Connecting Responders, Saving Lives
+          Revive: Empowering Communities, Connecting Responders, Saving Lives
         </h1>
         <p>
           Ready to revolutionize disaster relief efforts? Discover LifeLine, where we enhance communication and resource coordination during critical times.
@@ -261,7 +262,10 @@ function Home() {
 
       
 
-
+<div className="reportform">
+    <ReportForm/>
+  </div>
+  
       
       
     </div>

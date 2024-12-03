@@ -48,7 +48,7 @@ const Sidebar = () => {
     <Box
       sx={{ minHeight:"100vh",zIndex:10,
         "& .pro-sidebar-inner": {
-          background: `${colors.primary[400]} !important`,
+          background: `#f0f0f6 !important`,
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",

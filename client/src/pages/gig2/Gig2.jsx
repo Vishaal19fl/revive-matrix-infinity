@@ -3,6 +3,7 @@ import "./Gig2.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { Slider } from "infinite-react-carousel";
 import Donation from "../../components/donation/Donation";
+import GoogleMapWithAutocomplete from "../../components/mapRoute/MapRoute";
 
 export const Gig2 = () => {
   const [selectedTab, setSelectedTab] = useState("basic");
@@ -32,13 +33,14 @@ export const Gig2 = () => {
             <span>Rescue Agency</span>
           </div>
           <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden" }}>
-            <iframe
+            {/* <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31101.72347071431!2d80.16853235!3d12.99004395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52609ef059c837%3A0x3cd190a67366865b!2sMeenambakkam%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1719721425434!5m2!1sen!2sin"
               style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "90%", border: 0 }}
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-            />
+            /> */}
+            <GoogleMapWithAutocomplete/>
           </div>
 
           <h2>About This Request</h2>
@@ -100,11 +102,11 @@ export const Gig2 = () => {
           <div className="price">
             <h3>Requesting Food items</h3>
             <br />
-            {selectedTab === "basic" && <h2>From Meenambakkam</h2>}
+            {selectedTab === "basic" && <h2>From Kanchipuram</h2>}
             {selectedTab === "intermediate" && <h2>Rs. 4999</h2>}
             {selectedTab === "elite" && <h2>Rs. 7999</h2>}
           </div>
-          <p>Surya is requesting food from Meenambakkam</p>
+          <p>Surya is requesting food from Kanchipuram</p>
           <div className="details">
             <div className="item">
               <img src="/img/clock.png" alt="" />

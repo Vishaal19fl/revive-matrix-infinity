@@ -103,7 +103,8 @@ function Navbar() {
        
 
            <Link className="link" to='/chatbot'>{!currentUser?.isSeller && <span>Chat with us</span>}</Link>
-           <Link className="link" to='/status'>{currentUser?.isLogistics && <span>Track Status</span>}</Link>        
+           <Link className="link" to='/status'>{currentUser?.isLogistics && <span>Track Status</span>}</Link>  
+           <Link className="link" to='/status'>{currentUser?.isLogistics && <span>Report an Event</span>}</Link>        
           
           <Link className="link" to='/register?isService=true'>{!currentUser?.isSeller && !currentUser?.isLogistics && <span>Apply as a Service</span>}</Link>
 

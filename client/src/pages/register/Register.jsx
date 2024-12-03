@@ -149,7 +149,7 @@ function Register() {
                 </label>
               </div>
               <div className="toggle">
-                <label htmlFor="isLogistics">Register as Logistics Service</label>
+                <label htmlFor="isLogistics">Register as Logistics Service / Volunteer</label>
                 <label className="switch">
                   <input
                     type="checkbox"

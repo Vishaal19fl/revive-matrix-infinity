@@ -117,13 +117,12 @@ console.log(inventoryItems);
   justifyContent="center"
   sx={{
     borderRadius: "15px",
-    overflow: "hidden",
-    background: 'linear-gradient(40deg, rgba(255, 255, 255, 1) 0%,rgba(255, 241, 203, 0.8) 100%)',
-    backdropFilter: "blur(10px)",
-    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-    border: "1px solid rgba(255, 255, 255, 0.3)",
-    // backgroundImage: "linear-gradient(to bottom right, #0071bf, #00ecff)",
-  
+    background: '#f0f0f6', // Light gray for neomorphism background
+    boxShadow: `
+      8px 8px 16px rgba(0, 0, 0, 0.15), 
+      -8px -8px 16px rgba(255, 255, 255, 0.9)
+    `, // Dual shadow for 3D effect
+    border: "none", // Neomorphism often avoids solid borders
   }}
 >
           <StatBox
@@ -146,12 +145,12 @@ console.log(inventoryItems);
   justifyContent="center"
   sx={{
     borderRadius: "15px",
-    overflow: "hidden",
-    background: 'linear-gradient(40deg, rgba(255, 255, 255, 1) 0%,rgba(255, 240, 203, 0.8) 100%)',
-    backdropFilter: "blur(10px)",
-    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-    border: "1px solid rgba(255, 255, 255, 0.3)",
-  
+    background: '#f0f0f6', // Light gray for neomorphism background
+    boxShadow: `
+      8px 8px 16px rgba(0, 0, 0, 0.15), 
+      -8px -8px 16px rgba(255, 255, 255, 0.9)
+    `, // Dual shadow for 3D effect
+    border: "none", // Neomorphism often avoids solid borders
   }}
 >
           <StatBox
@@ -173,12 +172,12 @@ console.log(inventoryItems);
   justifyContent="center"
   sx={{
     borderRadius: "15px",
-    overflow: "hidden",
-    background: 'linear-gradient(40deg, rgba(255, 255, 255, 1) 0%,rgba(255, 240, 203, 0.8) 100%)',
-    backdropFilter: "blur(10px)",
-    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-    border: "1px solid rgba(255, 255, 255, 0.3)",
-  
+    background: '#f0f0f6', // Light gray for neomorphism background
+    boxShadow: `
+      8px 8px 16px rgba(0, 0, 0, 0.15), 
+      -8px -8px 16px rgba(255, 255, 255, 0.9)
+    `, // Dual shadow for 3D effect
+    border: "none", // Neomorphism often avoids solid borders
   }}
 >
           <StatBox
@@ -200,12 +199,12 @@ console.log(inventoryItems);
   justifyContent="center"
   sx={{
     borderRadius: "15px",
-    overflow: "hidden",
-    background: 'linear-gradient(40deg, rgba(255, 255, 255, 1) 0%, rgba(255, 240, 203, 0.8) 100%)',
-    backdropFilter: "blur(10px)",
-    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-    border: "1px solid rgba(255, 255, 255, 0.3)",
-  
+    background: '#f0f0f6', // Light gray for neomorphism background
+    boxShadow: `
+      8px 8px 16px rgba(0, 0, 0, 0.15), 
+      -8px -8px 16px rgba(255, 255, 255, 0.9)
+    `, // Dual shadow for 3D effect
+    border: "none", // Neomorphism often avoids solid borders
   }}
 >
           <StatBox
@@ -226,9 +225,13 @@ console.log(inventoryItems);
   gridColumn={isMobile ? 'span 12' : 'span 8'}
   gridRow="span 2"
   sx={{
-    borderRadius: "10px",
-    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-    background: "linear-gradient(40deg, rgba(255, 250, 210, 0.1) 0%, rgba(255, 240, 203, 0.4) 100%)",
+    borderRadius: "15px",
+    background: '#f0f0f6', // Light gray for neomorphism background
+    boxShadow: `
+      8px 8px 16px rgba(0, 0, 0, 0.15), 
+      -8px -8px 16px rgba(255, 255, 255, 0.9)
+    `, // Dual shadow for 3D effect
+    border: "none", // Neomorphism often avoids solid borders
   }}
 >
           <Box
@@ -278,8 +281,13 @@ console.log(inventoryItems);
     display="flex"
     justifyContent="space-between"
     sx={{
-      background: "linear-gradient(40deg, rgba(255, 250, 210, 0.1) 0%, rgba(255, 240, 203, 0.4) 100%)",
-      boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+      borderRadius: "0px",
+      background: colors.grey, // Light gray for neomorphism background
+      boxShadow: `
+        8px 8px 16px rgba(0, 0, 0, 0.1), 
+        -8px -8px 16px rgba(255, 255, 255, 0.7)
+      `, // Dual shadow for 3D effect
+      border: "none", // Neomorphism often avoids solid borders
     }}
     
     alignItems="center"
@@ -326,6 +334,7 @@ console.log(inventoryItems);
           p="5px 10px"
           borderRadius="4px"
           mt={isMobile ? '10px' : '0'}
+          
         >
           {order.donationItem}
         </Box>
@@ -343,9 +352,13 @@ console.log(inventoryItems);
           backgroundColor={colors.primary[400]}
           p="30px"
           sx={{
-            borderRadius: "10px",
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-            background: "linear-gradient(40deg, rgba(255, 250, 250, 0.1) 0%, rgba(255, 240, 203, 0.4) 100%)",
+            borderRadius: "15px",
+            background: '#f0f0f6', // Light gray for neomorphism background
+            boxShadow: `
+              8px 8px 16px rgba(0, 0, 0, 0.1), 
+              -8px -8px 16px rgba(255, 255, 255, 0.7)
+            `, // Dual shadow for 3D effect
+            border: "none", // Neomorphism often avoids solid borders
           }}
         >
           <Typography variant="h5" fontWeight="600">
@@ -374,9 +387,13 @@ console.log(inventoryItems);
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           sx={{
-            borderRadius: "10px",
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-            background: "linear-gradient(40deg, rgba(255, 250, 210, 0.1) 0%, rgba(255, 240, 203, 0.4) 100%)",
+            borderRadius: "15px",
+            background: '#f0f0f6', // Light gray for neomorphism background
+            boxShadow: `
+              8px 8px 16px rgba(0, 0, 0, 0.1), 
+              -8px -8px 16px rgba(255, 255, 255, 0.7)
+            `, // Dual shadow for 3D effect
+            border: "none", // Neomorphism often avoids solid borders
           }}
         >
           <Typography
@@ -396,10 +413,14 @@ console.log(inventoryItems);
           backgroundColor={colors.primary[400]}
           padding="30px"
           sx={{
-            borderRadius: "10px",
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-            background: "linear-gradient(40deg, rgba(255, 250, 210, 0.1) 0%, rgba(255, 240, 203, 0.4) 100%)",
-          }} 
+            borderRadius: "15px",
+            background: '#f0f0f6', // Light gray for neomorphism background
+            boxShadow: `
+              8px 8px 16px rgba(0, 0, 0, 0.1), 
+              -8px -8px 16px rgba(255, 255, 255, 0.7)
+            `, // Dual shadow for 3D effect
+            border: "none", // Neomorphism often avoids solid borders
+          }}
         >
           <Typography
             variant="h5"

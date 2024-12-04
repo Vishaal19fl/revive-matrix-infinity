@@ -27,6 +27,8 @@ import "./dashboard1.scss"
 import LocalShipping from '@mui/icons-material/LocalShipping';
 import Sidebar from '../global/Sidebar';
 import NewsSlider from '../../components/newsSlider/NewsSlider';
+import Marquee from 'react-fast-marquee';
+
 
 const Dashboard1 = () => {
   const theme = useTheme();
@@ -63,6 +65,20 @@ console.log(inventoryItems);
   const orders = Array.isArray(ordersData?.orders) ? ordersData.orders : [];
   const donationCount = orders.length;
   const recentDonations = orders.slice(-6);
+  const textArray = [
+    "Severe weather warning: Heavy rainfall expected tomorrow.",
+    "Flood alert: Evacuate low-lying areas immediately.",
+    "Earthquake detected: Stay indoors and protect yourself.",
+    "Tsunami warning: Move to higher ground immediately.",
+    "Emergency helpline: Dial 12345 for assistance.",
+    "Heatwave alert: Stay hydrated and avoid outdoor activities.",
+    "Shelter locations: Nearest relief camp is at XYZ Community Center.",
+    "Power outage expected: Prepare with emergency supplies.",
+    "Road closures: Avoid Route 56 due to landslides.",
+    "Stay tuned: Follow official channels for updates.",
+  ];
+  
+  
 
   return (
     <Box display="flex">
@@ -73,6 +89,7 @@ console.log(inventoryItems);
       {/* HEADER */}
       <Box display="flex" flexDirection={isMobile ? 'column' : 'row'} justifyContent="space-between" alignItems="center">
         <Header title="ADMIN DASHBOARD" subtitle="Welcome to your dashboard" titleSize="h4" />
+        
         {/* <IconButton onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? (
             <DarkModeOutlinedIcon />
@@ -101,6 +118,20 @@ console.log(inventoryItems);
           </Button>
         </Box>
       </Box>
+      <Box display="grid" mb="20px" gap="20px">
+  <div className="marquee-section">
+    <Marquee className="marquee" autoFill speed={20}>
+      <div className="text-gallery">
+        {textArray.map((text, index) => (
+          <div key={index} className="text-gallery-item">
+            <div className="blinking-light"></div>
+            <p className="gallery-text">{text}</p>
+          </div>
+        ))}
+      </div>
+    </Marquee>
+  </div>
+</Box>
 
       {/* GRID & CHARTS */}
       <Box

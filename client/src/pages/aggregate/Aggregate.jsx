@@ -1,132 +1,3 @@
-// import React, { useState } from 'react';
-// import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-// import { Icon } from 'leaflet';
-// import 'leaflet/dist/leaflet.css';
-
-// const disasterZones = [
-//   {
-//     name: "Flood Zone - Kolkata",
-//     location: [22.5726, 88.3639], // Kolkata
-//     disaster: 'waves', // Flood-related
-//     iconUrl: "https://cdn-icons-png.flaticon.com/512/8983/8983230.png", // Flood icon
-//   },
-//   {
-//     name: "Cyclone Zone - Mumbai",
-//     location: [19.0760, 72.8777], // Mumbai
-//     disaster: 'cyclone', // Cyclone-related
-//     iconUrl: "https://cdn-icons-png.flaticon.com/512/8085/8085932.png", // Cyclone icon
-//   },
-//   {
-//     name: "Heatwave Zone - Delhi",
-//     location: [28.6139, 77.2090], // Delhi
-//     disaster: 'fire', // Heatwave-related
-//     iconUrl: "https://png.pngtree.com/png-vector/20220901/ourmid/pngtree-a-simple-vector-icon-displaying-a-thermometer-with-the-sun-indicating-warm-weather-vector-png-image_33568994.png", // Fire icon
-//   },
-//   {
-//     name: "Heavy Rain Zone - Chennai",
-//     location: [13.0827, 80.2707], // Chennai
-//     disaster: 'rain', // Rain-related
-//     iconUrl: "https://cdn-icons-png.flaticon.com/512/1959/1959334.png", // Rain icon
-//   },
-//   {
-//     name: "Cyclone Zone - Puducherry",
-//     location: [11.9416, 79.8083], // Puducherry
-//     disaster: 'cyclone', // Cyclone-related
-//     iconUrl: "https://cdn-icons-png.flaticon.com/512/8085/8085932.png", // Cyclone icon
-//   },
-//   {
-//     name: "Flood Zone - Kanchipuram",
-//     location: [12.8344, 79.7031], // Kanchipuram
-//     disaster: 'waves', // Flood-related
-//     iconUrl: "https://cdn-icons-png.flaticon.com/512/8983/8983230.png", // Flood icon
-//   },
-//   {
-//     name: "Flood Zone - Thiruvallur",
-//     location: [13.1488, 79.9790], // Thiruvallur
-//     disaster: 'waves', // Flood-related
-//     iconUrl: "https://cdn-icons-png.flaticon.com/512/8983/8983230.png", // Flood icon
-//   },
-//   {
-//     name: "Cyclone Zone - Odisha",
-//     location: [20.9517, 85.0985], // Odisha (Bhubaneswar)
-//     disaster: 'cyclone', // Cyclone-related
-//     iconUrl: "https://cdn-icons-png.flaticon.com/512/8085/8085932.png", // Cyclone icon
-//   },
-//   {
-//     name: "Flood Zone - Visakhapatnam",
-//     location: [17.6869, 83.2185], // Visakhapatnam
-//     disaster: 'waves', // Flood-related
-//     iconUrl: "https://cdn-icons-png.flaticon.com/512/8983/8983230.png", // Flood icon
-//   },
-//   {
-//     name: "Avalanche Zone - Himachal Pradesh",
-//     location: [32.2207, 77.1880], // Himachal Pradesh
-//     disaster: 'avalanche', // Avalanche-related
-//     iconUrl: "https://www.pngkey.com/png/full/866-8669719_avalanche-moderate-danger-level-avalanche-danger-icon.png", // Avalanche icon
-//   },
-//   {
-//     name: "Avalanche Zone - Uttarakhand",
-//     location: [30.0668, 79.0193], // Uttarakhand
-//     disaster: 'avalanche', // Avalanche-related
-//     iconUrl: "https://www.pngkey.com/png/full/866-8669719_avalanche-moderate-danger-level-avalanche-danger-icon.png", // Avalanche icon
-//   },
-// ];
-
-// const Aggregate = () => {
-//   const [map, setMap] = useState(null);
-
-//   // Custom Icon generator for each disaster marker
-//   const getIcon = (iconUrl) => {
-//     return new Icon({
-//       iconUrl: iconUrl,
-//       iconSize: [32, 32],
-//       iconAnchor: [16, 32],
-//       popupAnchor: [0, -32],
-//     });
-//   };
-
-//   return (
-//     <div style={{ height: '100vh' }}>
-//       <MapContainer
-//         center={[20.5937, 78.9629]} // Center over India
-//         zoom={5}
-//         style={{ height: '100%', width: '100%' }}
-//         whenCreated={setMap}
-//       >
-//         <TileLayer
-//           url="https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.png"
-          
-//           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-//         />
-//         {/* <TileLayer
-//           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-          
-//           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-//         /> */}
-
-//         {/* Add disaster markers */}
-//         {disasterZones.map((zone, index) => (
-//           <Marker
-//             key={index}
-//             position={zone.location}
-//             icon={getIcon(zone.iconUrl)}
-//           >
-//             <Popup>
-//               <div>
-//                 <h3>{zone.name}</h3>
-//                 <p>Located at: {zone.location.join(", ")}</p>
-//                 <p>Disaster Type: {zone.disaster}</p>
-//               </div>
-//             </Popup>
-//           </Marker>
-//         ))}
-//       </MapContainer>
-//     </div>
-//   );
-// };
-
-// export default Aggregate;
-
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from 'leaflet';
@@ -263,10 +134,20 @@ const Aggregate = () => {
 
       const results = await Promise.all(promises);
       setWeatherData(results);
+
+      console.log(results);
+
+      const bhubaneswarWeather = results.find(state => state.name === "Odisha - Bhubaneswar");
+      if (bhubaneswarWeather) {
+        setSearchedWeather(bhubaneswarWeather);
+      }
+    
     };
 
     fetchWeatherData();
   }, []);
+
+  
 
   const handleSearch = async () => {
     try {
@@ -301,7 +182,7 @@ const Aggregate = () => {
     <div style={{ height: '100vh' }}>
       <MapContainer
         center={[20.5937, 78.9629]} // Center over India
-        zoom={5}
+        zoom={5.3}
         style={{ height: '100%', width: '100%' }}
       >
         <TileLayer
@@ -390,8 +271,65 @@ const Aggregate = () => {
         )}
       </div>
 
-      {/* Info Box for Icon Explanation */}
-      <div className="info-box">
+      
+      <div className="active-weather">
+  <h3>Active Cyclone at Chennai, Tamil Nadu</h3>
+  <div className="blinking-light"></div>
+</div>
+
+<style jsx>{`
+  .active-weather {
+    position: fixed;
+    display:flex;
+    width:100%;
+    gap:15px;
+    flex-direction:row;
+    bottom: 20px;
+    z-index: 99999;
+    left: 20px;
+    background-color: rgb(228, 244, 255);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    width: 250px;
+  }
+
+  .active-weather h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .blinking-light {
+    width: 23px;
+    height: 15px;
+    background-color: green;
+    border-radius: 50%;
+    animation: blink 1s infinite alternate;
+    margin-top: 3px;
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .active-weather {
+      display: none;
+    }
+  }
+`}</style>
+
+
+
+
+<div className="info-box">
         <h3>Weather Icons</h3>
         <ul>
           <li>
@@ -477,3 +415,133 @@ const Aggregate = () => {
 };
 
 export default Aggregate;
+
+
+// import React, { useState } from 'react';
+// import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+// import { Icon } from 'leaflet';
+// import 'leaflet/dist/leaflet.css';
+
+// const disasterZones = [
+//   {
+//     name: "Flood Zone - Kolkata",
+//     location: [22.5726, 88.3639], // Kolkata
+//     disaster: 'waves', // Flood-related
+//     iconUrl: "https://cdn-icons-png.flaticon.com/512/8983/8983230.png", // Flood icon
+//   },
+//   {
+//     name: "Cyclone Zone - Mumbai",
+//     location: [19.0760, 72.8777], // Mumbai
+//     disaster: 'cyclone', // Cyclone-related
+//     iconUrl: "https://cdn-icons-png.flaticon.com/512/8085/8085932.png", // Cyclone icon
+//   },
+//   {
+//     name: "Heatwave Zone - Delhi",
+//     location: [28.6139, 77.2090], // Delhi
+//     disaster: 'fire', // Heatwave-related
+//     iconUrl: "https://png.pngtree.com/png-vector/20220901/ourmid/pngtree-a-simple-vector-icon-displaying-a-thermometer-with-the-sun-indicating-warm-weather-vector-png-image_33568994.png", // Fire icon
+//   },
+//   {
+//     name: "Heavy Rain Zone - Chennai",
+//     location: [13.0827, 80.2707], // Chennai
+//     disaster: 'rain', // Rain-related
+//     iconUrl: "https://cdn-icons-png.flaticon.com/512/1959/1959334.png", // Rain icon
+//   },
+//   {
+//     name: "Cyclone Zone - Puducherry",
+//     location: [11.9416, 79.8083], // Puducherry
+//     disaster: 'cyclone', // Cyclone-related
+//     iconUrl: "https://cdn-icons-png.flaticon.com/512/8085/8085932.png", // Cyclone icon
+//   },
+//   {
+//     name: "Flood Zone - Kanchipuram",
+//     location: [12.8344, 79.7031], // Kanchipuram
+//     disaster: 'waves', // Flood-related
+//     iconUrl: "https://cdn-icons-png.flaticon.com/512/8983/8983230.png", // Flood icon
+//   },
+//   {
+//     name: "Flood Zone - Thiruvallur",
+//     location: [13.1488, 79.9790], // Thiruvallur
+//     disaster: 'waves', // Flood-related
+//     iconUrl: "https://cdn-icons-png.flaticon.com/512/8983/8983230.png", // Flood icon
+//   },
+//   {
+//     name: "Cyclone Zone - Odisha",
+//     location: [20.9517, 85.0985], // Odisha (Bhubaneswar)
+//     disaster: 'cyclone', // Cyclone-related
+//     iconUrl: "https://cdn-icons-png.flaticon.com/512/8085/8085932.png", // Cyclone icon
+//   },
+//   {
+//     name: "Flood Zone - Visakhapatnam",
+//     location: [17.6869, 83.2185], // Visakhapatnam
+//     disaster: 'waves', // Flood-related
+//     iconUrl: "https://cdn-icons-png.flaticon.com/512/8983/8983230.png", // Flood icon
+//   },
+//   {
+//     name: "Avalanche Zone - Himachal Pradesh",
+//     location: [32.2207, 77.1880], // Himachal Pradesh
+//     disaster: 'avalanche', // Avalanche-related
+//     iconUrl: "https://www.pngkey.com/png/full/866-8669719_avalanche-moderate-danger-level-avalanche-danger-icon.png", // Avalanche icon
+//   },
+//   {
+//     name: "Avalanche Zone - Uttarakhand",
+//     location: [30.0668, 79.0193], // Uttarakhand
+//     disaster: 'avalanche', // Avalanche-related
+//     iconUrl: "https://www.pngkey.com/png/full/866-8669719_avalanche-moderate-danger-level-avalanche-danger-icon.png", // Avalanche icon
+//   },
+// ];
+
+// const Aggregate = () => {
+//   const [map, setMap] = useState(null);
+
+//   // Custom Icon generator for each disaster marker
+//   const getIcon = (iconUrl) => {
+//     return new Icon({
+//       iconUrl: iconUrl,
+//       iconSize: [32, 32],
+//       iconAnchor: [16, 32],
+//       popupAnchor: [0, -32],
+//     });
+//   };
+
+//   return (
+//     <div style={{ height: '100vh' }}>
+//       <MapContainer
+//         center={[20.5937, 78.9629]} // Center over India
+//         zoom={5}
+//         style={{ height: '100%', width: '100%' }}
+//         whenCreated={setMap}
+//       >
+//         <TileLayer
+//           url="https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.png"
+          
+//           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+//         />
+//         {/* <TileLayer
+//           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+          
+//           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+//         /> */}
+
+//         {/* Add disaster markers */}
+//         {disasterZones.map((zone, index) => (
+//           <Marker
+//             key={index}
+//             position={zone.location}
+//             icon={getIcon(zone.iconUrl)}
+//           >
+//             <Popup>
+//               <div>
+//                 <h3>{zone.name}</h3>
+//                 <p>Located at: {zone.location.join(", ")}</p>
+//                 <p>Disaster Type: {zone.disaster}</p>
+//               </div>
+//             </Popup>
+//           </Marker>
+//         ))}
+//       </MapContainer>
+//     </div>
+//   );
+// };
+
+// export default Aggregate;

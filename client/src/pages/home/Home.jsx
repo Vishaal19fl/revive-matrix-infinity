@@ -74,7 +74,7 @@ function Home() {
       {/* <div className="slide-title1">
         <h2>Revolutionizing Disaster Relief</h2>
       </div> */}
-      <div className="marquee-section">
+      <div className="marquee-section" >
       <Marquee className="marquee" autoFill speed={20}>
         <div className="gallery">
           {imageUrls.map((image, index) => (

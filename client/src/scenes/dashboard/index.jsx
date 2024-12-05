@@ -463,6 +463,13 @@ console.log(inventoryItems);
           <Box height="200px">
             <GeographyChart isDashboard={true} />
           </Box>
+          {/* <Box height="200px" display="flex" justifyContent="center" alignItems="center">
+  <img
+    src="https://mausam.imd.gov.in/Radar/animation/Converted/PDP_MAXZ.gif"
+    alt="Weather Radar"
+    style={{ width: "80%", height: "auto" }}
+  />
+</Box> */}
         </Box>
       </Box>
     </Box>

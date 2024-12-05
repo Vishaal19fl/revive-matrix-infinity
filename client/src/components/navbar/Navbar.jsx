@@ -96,7 +96,7 @@ function Navbar() {
                   <Link className="link" to="/orders">
           {currentUser?.isSeller && <span>Donations</span>}
                   </Link>
-          <Link className="link" to="/pointmap">
+          <Link className="link" to="/aggregated">
           
           <span>View Maps</span>
         </Link>

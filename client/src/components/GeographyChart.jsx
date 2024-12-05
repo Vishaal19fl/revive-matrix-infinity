@@ -7,14 +7,27 @@ const GeographyChart = () => {
   // Predefined locations: Chennai and Odisha
   const locations = [
     {
-      name: "Chennai",
-      coordinates: [13.0827, 80.2707], // Latitude and Longitude of Chennai
+      name: "Bhubaneswar",
+      coordinates: [20.2961, 85.8245], // Latitude and Longitude of Bhubaneswar
     },
     {
-      name: "Kanchipuram",
-      coordinates: [12.8312, 79.7099], // Latitude and Longitude of Odisha
+      name: "Cuttack",
+      coordinates: [20.4625, 85.8828], // Latitude and Longitude of Cuttack
+    },
+    {
+      name: "Puri",
+      coordinates: [19.8135, 85.8312], // Latitude and Longitude of Puri
+    },
+    {
+      name: "Rourkela",
+      coordinates: [22.2604, 84.8536], // Latitude and Longitude of Rourkela
+    },
+    {
+      name: "Sambalpur",
+      coordinates: [21.4680, 83.9777], // Latitude and Longitude of Sambalpur
     },
   ];
+  
 
   const mapRef = useRef();
 
@@ -42,12 +55,12 @@ const GeographyChart = () => {
   return (
     <MapContainer
       ref={mapRef}
-      center={[20.5937, 78.9629]}
+      center={[20.5937, 82.9629]}
       zoom={5}
       style={{ width: "100%", height: "200px" }}
     >
       <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        url="https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
       {locations.map((location, index) => (

@@ -45,6 +45,7 @@ import Map from "./pages/map/Map";
 import { ShelterDetails } from "./pages/shelterPage/Shelterpage";
 import News from "./pages/news/News";
 import Aggregate from "./pages/aggregate/Aggregate";
+import Team from "./scenes/team/index"
 // import MapComponent from "./components/mapRoute/MapRoute";
 function App() {
   const queryClient = new QueryClient();
@@ -237,6 +238,10 @@ function App() {
         {
           path: '/aggregated',
           element: <Aggregate />,
+        },
+        {
+          path: '/team',
+          element: <Team />,
         },
         // {
         //   path: '/maproute',

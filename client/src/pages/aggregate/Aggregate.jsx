@@ -110,12 +110,15 @@ const Aggregate = () => {
           const response = await axios.get(
             `https://api.openweathermap.org/data/2.5/weather?lat=${state.location[0]}&lon=${state.location[1]}&appid=${WEATHER_API_KEY}&units=metric`
           );
-          const { weather, main } = response.data;
+          const { weather, main, wind } = response.data;
+          console.log(response.data);
           return {
             name: state.name,
             location: state.location,
             weather: weather[0].main,
             description: weather[0].description,
+            humidity:main.humidity,
+            windspeed: wind.speed,
             temp: main.temp,
             iconUrl: getWeatherIcon(weather[0].description),
           };
@@ -126,6 +129,8 @@ const Aggregate = () => {
             location: state.location,
             weather: "Unknown",
             description: "Unable to fetch weather data",
+            humidity:main.humidity,
+            windspeed: wind.speed,
             temp: "N/A",
             iconUrl: weatherIcons.cloud,
           };
@@ -141,6 +146,8 @@ const Aggregate = () => {
       if (bhubaneswarWeather) {
         setSearchedWeather(bhubaneswarWeather);
       }
+
+      console.log(searchedWeather);
     
     };
 
@@ -160,12 +167,16 @@ const Aggregate = () => {
         location: [response.data.coord.lat, response.data.coord.lon],
         weather: weather[0].main,
         description: weather[0].description,
+        humidity:main.humidity,
+        windspeed: wind.speed,
         temp: main.temp,
         iconUrl: getWeatherIcon(weather[0].description),
       });
     } catch (error) {
       console.error("Error fetching weather for search term:", error);
       setSearchedWeather(null);
+
+      console.log(searchedWeather);
     }
   };
 
@@ -202,6 +213,8 @@ const Aggregate = () => {
               <div>
                 <h3>{state.name}</h3>
                 <p>{state.description}</p>
+                <p>Humidity : {state.humidity}</p>
+                <p>Wind Speed : {state.windspeed}</p>
                 <p>Temperature: {state.temp}°C</p>
               </div>
             </Popup>
@@ -266,7 +279,8 @@ const Aggregate = () => {
             <img src={searchedWeather.iconUrl} alt={searchedWeather.weather} width="30" />
             <p>{searchedWeather.weather}</p>
             <p>{searchedWeather.description}</p>
-            <p>Temperature: {searchedWeather.temp}°C</p>
+            <p><strong>Humidity : </strong>{searchedWeather.humidity}</p>
+            <p><strong>Temperature : </strong> {searchedWeather.temp}°C</p>
           </div>
         )}
       </div>

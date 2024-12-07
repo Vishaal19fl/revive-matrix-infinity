@@ -45,7 +45,9 @@ import Map from "./pages/map/Map";
 import { ShelterDetails } from "./pages/shelterPage/Shelterpage";
 import News from "./pages/news/News";
 import Aggregate from "./pages/aggregate/Aggregate";
+import DirectionsMap from "./pages/directionsMap/DirectionsMap";
 import Team from "./scenes/team/index"
+import RouteMapWithTrafficAndAutocomplete from "./pages/directionsMap/DirectionsMap";
 // import MapComponent from "./components/mapRoute/MapRoute";
 function App() {
   const queryClient = new QueryClient();
@@ -242,6 +244,10 @@ function App() {
         {
           path: '/team',
           element: <Team />,
+        },
+        {
+          path: '/direction',
+          element: <DirectionsMap />,
         },
         // {
         //   path: '/maproute',

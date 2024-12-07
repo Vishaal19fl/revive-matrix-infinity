@@ -8,6 +8,7 @@ const GoogleMapWithAutocomplete = () => {
   let autocomplete;
   let directionsService;
   let directionsRenderer;
+  let trafficLayer;
 
   useEffect(() => {
     // This function will be called when the Google Maps API is loaded
@@ -17,6 +18,10 @@ const GoogleMapWithAutocomplete = () => {
         center: { lat: 12.9716, lng: 80.2760 }, // Default to Chennai, India
         zoom: 10,
       });
+
+      // Add a traffic layer to the map
+      trafficLayer = new window.google.maps.TrafficLayer();
+      trafficLayer.setMap(map);
 
       // Create the autocomplete object and bind it to the input field
       autocomplete = new window.google.maps.places.Autocomplete(inputRef.current);
@@ -96,7 +101,7 @@ const GoogleMapWithAutocomplete = () => {
       <div
         ref={mapRef}
         id="map"
-        style={{ height: '400px', width: '100%' }}
+        style={{ height: '500px', width: '100%', borderRadius:"10px" }}
       ></div>
     </div>
   );

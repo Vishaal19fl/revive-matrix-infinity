@@ -160,6 +160,7 @@ const DirectionsMap = () => {
   const destinationInputRef = useRef(null);
   const [pickup, setPickup] = useState('');
   const [destination, setDestination] = useState('');
+  const [distance, setDistance] = useState(null);
   const [mapObjects, setMapObjects] = useState({ directionsService: null, directionsRenderer: null });
 
   useEffect(() => {
@@ -239,6 +240,10 @@ const DirectionsMap = () => {
     directionsService.route(request, (result, status) => {
       if (status === window.google.maps.DirectionsStatus.OK) {
         directionsRenderer.setDirections(result);
+
+        // Extract and set the distance
+        const distanceText = result.routes[0].legs[0].distance.text;
+        setDistance(distanceText);
       } else {
         console.error('Directions request failed due to ' + status);
       }
@@ -294,6 +299,26 @@ const DirectionsMap = () => {
           Show Optimal Route
         </button>
       </div>
+      {distance && (
+        <div
+        style={{
+          marginTop: '20px',
+          marginBottom: '20px',
+          fontSize: '20px',
+          fontWeight: 'bold',
+          color: '#333',
+          textAlign: 'center',
+          backgroundColor: '#d9f2ff', // Light sky-blue background
+          border: '1px solid #b3e6ff', // Slightly darker border
+          borderRadius: '8px',
+          padding: '15px',
+          margin:'15px 60px',
+          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+        }}
+        >
+          Distance: {distance}
+        </div>
+      )}
       <div
         ref={mapRef}
         id="map"

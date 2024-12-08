@@ -161,6 +161,7 @@ const DirectionsMap = () => {
   const [pickup, setPickup] = useState('');
   const [destination, setDestination] = useState('');
   const [distance, setDistance] = useState(null);
+  const [duration, setDuration] = useState('');
   const [mapObjects, setMapObjects] = useState({ directionsService: null, directionsRenderer: null });
 
   useEffect(() => {
@@ -236,14 +237,16 @@ const DirectionsMap = () => {
       destination: destination,
       travelMode: window.google.maps.TravelMode.DRIVING,
     };
-
+  
     directionsService.route(request, (result, status) => {
       if (status === window.google.maps.DirectionsStatus.OK) {
         directionsRenderer.setDirections(result);
-
-        // Extract and set the distance
-        const distanceText = result.routes[0].legs[0].distance.text;
-        setDistance(distanceText);
+  
+        // Extract distance and duration
+        const route = result.routes[0];
+        const leg = route.legs[0]; // Get the first leg of the route
+        setDistance(leg.distance.text); // Distance in text format (e.g., "12.5 km")
+        setDuration(leg.duration.text); // Duration in text format (e.g., "25 mins")
       } else {
         console.error('Directions request failed due to ' + status);
       }
@@ -264,6 +267,7 @@ const DirectionsMap = () => {
         style={{
           width: '45%',
           margin:'20px 20px',
+          marginLeft:'40px',
           padding: '10px',
           border: '1px solid #ddd',
           borderRadius: '5px',
@@ -299,13 +303,13 @@ const DirectionsMap = () => {
           Show Optimal Route
         </button>
       </div>
-      {distance && (
+      {distance && duration && (
         <div
         style={{
           marginTop: '20px',
           marginBottom: '20px',
           fontSize: '20px',
-          fontWeight: 'bold',
+          
           color: '#333',
           textAlign: 'center',
           backgroundColor: '#d9f2ff', // Light sky-blue background
@@ -316,7 +320,8 @@ const DirectionsMap = () => {
           boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
         }}
         >
-          Distance: {distance}
+          <strong>Distance :</strong> {distance} <br />
+          <strong>Estimated Time : </strong> {duration}
         </div>
       )}
       <div

@@ -255,7 +255,13 @@ function Home() {
           <img src="./img/check.png" alt="" />
           Manage resources and donations seamlessly through our platform
         </div>
+        <Link className="link" to="/product"><button 
+        
+        onclick="window.location.href='/product'">
+        Buy Now
+      </button></Link>
       </div>
+     
     </div>
   </div>
 )}

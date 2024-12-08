@@ -37,26 +37,26 @@ function Footer() {
           <div className="item">
             <h2>Forum</h2>
           
-            <span>LifeLine Hub</span>
+            <span>Revive Hub</span>
             <span>Join Us</span>
             <span>Partner with Us</span>
             
             
           </div>
           <div className="item">
-            <h2>More From LifeLine</h2>
-            <span>LifeLine Workshops</span>
+            <h2>More From Revive</h2>
+            <span>Revive Workshops</span>
            
-            <span>LifeLine Projects</span>
+            <span>Revive Projects</span>
             <span>Get Inspired</span>
-            <span>LifeLine Help</span>
+            <span>Revive Help</span>
            
           </div>
         </div>
         <hr />
         <div className="bottom">
           <div className="left">
-            <h2>LifeLine.</h2>
+            <h2>Revive.</h2>
             <span>© This WebApp is protected by reCAPTCHA and Google</span>
           </div>
           <div className="right">

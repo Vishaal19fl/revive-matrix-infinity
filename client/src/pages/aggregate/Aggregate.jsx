@@ -276,9 +276,9 @@ const Aggregate = () => {
           <div className="searched-weather" style={{ marginTop: '10px', background:'rgba(255, 255, 255)', padding: '15px',borderRadius: '8px',
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.4)'}}>
             <h3>Weather in {searchedWeather.name}</h3>
-            <img src={searchedWeather.iconUrl} alt={searchedWeather.weather} width="30" />
+            <img src={searchedWeather.iconUrl} alt={searchedWeather.weather} width="50" />
             <p>{searchedWeather.weather}</p>
-            <p>{searchedWeather.description}</p>
+            {/* <p>{searchedWeather.description}</p> */}
             <p><strong>Humidity : </strong>{searchedWeather.humidity}</p>
             <p><strong>Temperature : </strong> {searchedWeather.temp}°C</p>
           </div>

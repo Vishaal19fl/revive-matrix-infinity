@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Revive</title>
+
+    <style>
+        html {
+            font-family: Helvetica, sans-serif;
+        }
+
+        .header-box {
+            width: 100%;
+            height: min-content;
+            background: linear-gradient(180deg, #0462cd, #43b7ff);
+            border: 1px solid #8ccade;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            display: flex;
+            padding: 0 20px;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            padding-top: 80px;
+        }
+
+
+        .hamburger {
+            width: 30px;
+            height: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hamburger div {
+            width: 100%;
+            height: 4px;
+            background-color: #000000;
+        }
+
+        .headText {
+            flex-grow: 1;
+            text-align: left;
+            font-size: 15px;
+            padding-left: 20px;
+        }
+
+        .Status-box {
+            margin: 10px;
+            border: 1px solid #0b0b0b;
+            margin-top: 20px;
+            box-sizing: border-box;
+            align-items: center;
+            font-size: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .Status-text {
+            font-size: 15px;
+            justify-content: center;
+            margin-top: 20px;
+            display: inline;
+        }
+
+        .message-box {
+            margin: 10px;
+            border: 1px solid #0b0b0b;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: auto;
+            height: 500px;
+            background-color: #eaf4f9;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-radius: 5px;
+            padding-bottom: 20px;
+        }
+
+        .message-window {
+            flex: 1;
+            overflow-y: auto;
+            border-bottom: 1px solid #ccc;
+            padding: 0 5px;
+        }
+
+        .message {
+            margin: 5px 0;
+            padding: 10px 10px;
+            border-radius: 10px;
+            background-color: #e0e0e0;
+            width: fit-content;
+            max-width: 70%;
+        }
+
+        .message.sent {
+            background-color: #24b4af;
+            color: #fff;
+            align-self: flex-end;
+        }
+
+        .message.received {
+            background-color: #109994;
+            align-self: flex-start;
+        }
+
+        .Send-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .Send-box .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #input-message,
+        .additional-input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            margin: 10px;
+            margin-bottom: 5px;
+        }
+
+        #Send-button,
+        #Mic-button,
+        #Get-location-button{
+            padding: 10px 20px;
+            background-color: #0a7ec2;
+            color: #fff;
+            border: none;
+            width: 60%;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-left: 5px;
+            margin: 7px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        }
+
+        #Send-button:hover,
+        #Mic-button:hover
+        #Get-location-button:hover {
+            background-color: #095a8b;
+            transform: translateY(-2px);
+        }
+
+        #Send-button:active,
+        #Mic-button:active,
+        #Get-location-button:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            margin: 0%;
+            width: fit-content;
+            display: inline;
+        }
+
+        #node {
+            color: red;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            z-index: 1000;
+            display: none;
+        }
+
+        .overlay.show {
+            display: flex;
+        }
+
+        #news-form {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px 25px;
+        }
+
+        #news-form input,
+        #news-form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #news-form button {
+            padding: 10px 20px;
+            background-color: #0a7ec2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        }
+
+        #news-form button:hover {
+            background-color: #095a8b;
+            transform: translateY(-2px);
+        }
+
+        #news-form button:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .news-item {
+            margin: 10px 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 20px 10px;
+            border: 1px solid #ccf2ff;
+            border-radius: 5px;
+            background-color: #e0f7fa;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .news-item .status {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 17px;
+            color: green;
+        }
+
+        .news-item .status .dot {
+            width: 10px;
+            height: 10px;
+            background-color: green;
+            border-radius: 50%;
+            margin-left: 5px;
+        }
+
+        .Send-box label {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            margin: 10px;
+        }
+
+        .Send-box select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #Report-news-button {
+            padding: 10px 20px;
+            margin: 10px;
+            margin-left: 20px;
+            background-color: #13c4ff;
+            color: #1d1d1d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        }
+
+        #Manage-inventory-button {
+            padding: 10px 20px;
+            margin: 10px;
+            margin-left: 20px;
+            background-color: #ffa113;
+            color: #1d1d1d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        }
+
+        .footer-box {
+            width: 100%;
+            background-color: #84d2ff32;
+            color: #151515;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            bottom: 0;
+            left: 0;
+        }
+
+        .title {
+            margin-left: 20px;
+
+            font-size: 25px;
+        }
+
+        #inventory-form {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .inventory-input-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .inventory-input-container input[type="text"],
+        .inventory-input-container input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 150px;
+            box-sizing: border-box;
+        }
+
+        .counter {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .counter button {
+            padding: 5px 10px;
+            background-color: #0a7ec2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .counter button:hover {
+            background-color: #095a8b;
+        }
+
+        #add-item-button {
+            padding: 10px 20px;
+            background-color: #0a7ec2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-left: 10px;
+        }
+
+        #add-item-button:hover {
+            background-color: #095a8b;
+        }
+
+        #inventory-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        #inventory-table th,
+        #inventory-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #inventory-table th {
+            background-color: #f2f2f2;
+        }
+
+        .inventory-actions button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 0 5px;
+        }
+
+        .inventory-actions .add-button {
+            background-color: #0a7ec2;
+            color: #fff;
+        }
+
+        .inventory-actions .remove-button {
+            background-color: #ff4c4c;
+            color: #fff;
+        }
+
+        .inventory-actions .add-button:hover {
+            background-color: #095a8b;
+        }
+
+        .inventory-actions .remove-button:hover {
+            background-color: #cc0000;
+        }
+
+        @media (max-width: 768px) {
+            .inventory-input-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .counter {
+                margin-top: 10px;
+            }
+
+            #add-item-button {
+                margin-left: 0;
+            }
+
+            .inventory-actions {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .inventory-actions button {
+                margin: 5px 0;
+            }
+
+            #inventory-table th,
+            #inventory-table td {
+                font-size: 0.9em;
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #inventory-form {
+                padding: 5px;
+            }
+
+            .inventory-input-container input[type="text"],
+            .inventory-input-container input[type="number"] {
+                font-size: 0.9em;
+                padding: 8px;
+            }
+
+            .counter button {
+                padding: 4px 8px;
+                font-size: 0.9em;
+            }
+
+            #add-item-button {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+
+            #inventory-table th,
+            #inventory-table td {
+                font-size: 0.8em;
+                padding: 6px;
+            }
+        }
+
+        .node-select {
+            display: flex;
+            gap: 20px;
+        }
+
+        #selectnode {
+            padding: 0px 20px;
+            margin: 10px 0px;
+            border-radius: 5px;
+            border: 1px solid rgba(60, 190, 255, 0.891);
+        }
+
+        .toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+    font-size: 16px;
+}
+    </style>
+</head>
+
+<body>
+    <div class="header-box">
+        <div class="headText">
+            <h1>Revive</h1>
+        </div>
+    </div>
+    <div class="Status-box">
+        <h2 style="font-size: 20px; margin: 0px">Status</h2>
+        <div class="Status-text">
+            Battery:
+            <p id="battery" style="text-align: right">100%</p>
+            <br />
+            Node:
+            <p id="node" style="text-align: right">Not connected</p>
+        </div>
+    </div>
+    <div class="node-select">
+        <h1 class="title">Send a message</h1>
+        <select id="selectnode">
+            <option value="rescue">Rescue</option>
+            <option value="node1">Node 1</option>
+            <option value="node2">Node 2</option>
+        </select>
+    </div>
+    <div class="message-box">
+        <div class="message-window" id="message-window"></div>
+        <div class="Send-box">
+            <label for="action-select">I want to:</label>
+            <select id="action-select">
+                <option value="request">Request</option>
+                <option value="donate">Donate</option>
+            </select>
+            <input type="text" id="input-message" placeholder="Name" />
+            <input type="text" class="additional-input" id="input-field-2" placeholder="Address" />
+            <input type="text" class="additional-input" id="input-field-3" placeholder="Enter the items" />
+            <input type="text" class="additional-input" id="input-field-4" placeholder="Quantity" />
+
+            <div class="toggle-container">
+                <label for="geo-toggle">Include location:</label>
+                <input type="checkbox" id="geo-toggle" />
+            </div>
+
+            <div class="buttons">
+                <button id="Get-location-button">Get Location</button>
+                <button id="Send-button">Send</button>
+                <button id="Mic-button">Mic</button>
+            </div>
+        </div>
+
+    </div>
+    <h1 class="title">Report an Event or News</h1>
+    <!-- <div class="news-item">
+        <div><strong>Name :</strong> Vishaal</div>
+        <div><strong>Address :</strong> 13th main road, 4th avenue, Anna Nagar</div>
+        <div><strong>News :</strong> Stagnant water here.</div>
+        <br/>
+        <div class="status">Status : Active <span class="dot"></span></div>
+    </div> -->
+
+    <button id="Report-news-button">Report News</button>
+
+    <div id="news-form">
+        <input type="text" id="news-name" placeholder="Name" />
+        <input type="text" id="news-address" placeholder="Address" />
+        <textarea id="news-content" placeholder="News" rows="4"></textarea>
+        <button id="Add-news-button">Add</button>
+    </div>
+    <div id="news-container"></div>
+    <div class="overlay" id="overlay">Please wait...</div>
+
+    <h1 class="title">Manage Inventory (For Relief Agencies or Camps)</h1>
+    <button id="Manage-inventory-button">Manage Inventory</button>
+
+    <div id="inventory-form" style="display: none">
+        <div class="inventory-input-container">
+            <input type="text" id="inventory-item" placeholder="Item Name" />
+            <div class="counter">
+                <button id="decrement-btn">-</button>
+                <input type="number" id="inventory-count" value="1" min="1" />
+                <button id="increment-btn">+</button>
+            </div>
+            <button id="add-item-button">Add</button>
+        </div>
+        <table id="inventory-table">
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Quantity</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div class="footer-box">
+        <p>&copy; 2024 Revive. All rights reserved.</p>
+    </div>
+
+    <script>
+        var gateway = ws://${window.location.hostname}/ws;
+        var websocket;
+
+        function initWebSocket() {
+            websocket = new WebSocket(gateway);
+            websocket.onopen = onOpen;
+            websocket.onclose = onClose;
+            websocket.onmessage = onMessage;
+        }
+
+        function onOpen(event) {
+            console.log("Connection opened");
+        }
+
+        function onClose(event) {
+            console.log("Connection Closed");
+            setTimeout(initWebSocket, 2000);
+        }
+
+        function onMessage(event) {
+            var message = event.data;
+            if (message === "mic on") {
+                startRecording2();
+
+            }
+            else if (message === "mic off") {
+                stopRecording2()
+
+            }
+            else {
+                addMessage(message, "received");
+            }
+
+        }
+
+        window.addEventListener("load", function (event) {
+            initWebSocket();
+            document
+                .getElementById("Send-button")
+                .addEventListener("click", function () {
+                    sendMessage();
+                });
+            document
+                .getElementById("Mic-button")
+                .addEventListener("click", function () {
+                    toggleRecording();
+                });
+
+            document
+                .getElementById("Add-news-button")
+                .addEventListener("click", function () {
+                    addNews();
+                });
+            document
+                .getElementById("Report-news-button")
+                .addEventListener("click", function () {
+                    toggleNewsForm();
+                });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const inventoryItemInput = document.getElementById("inventory-item");
+
+            inventoryItemInput.addEventListener("input", function () {
+                let value = inventoryItemInput.value;
+                if (value.length > 0) {
+                    value =
+                        value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+                    inventoryItemInput.value = value;
+                }
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const inventoryForm = document.getElementById("inventory-form");
+            const inventoryTableBody = document.querySelector(
+                "#inventory-table tbody"
+            );
+
+            loadInventory();
+
+            document
+                .getElementById("Manage-inventory-button")
+                .addEventListener("click", function () {
+                    inventoryForm.style.display =
+                        inventoryForm.style.display === "none" ? "block" : "none";
+                });
+
+            document
+                .getElementById("decrement-btn")
+                .addEventListener("click", function () {
+                    const countInput = document.getElementById("inventory-count");
+                    let currentValue = parseInt(countInput.value, 10);
+                    if (currentValue > 1) {
+                        countInput.value = currentValue - 1;
+                    }
+                });
+
+            document
+                .getElementById("increment-btn")
+                .addEventListener("click", function () {
+                    const countInput = document.getElementById("inventory-count");
+                    countInput.value = parseInt(countInput.value, 10) + 1;
+                });
+
+            document
+                .getElementById("add-item-button")
+                .addEventListener("click", function () {
+                    const itemName = document
+                        .getElementById("inventory-item")
+                        .value.trim();
+                    const itemCount = parseInt(
+                        document.getElementById("inventory-count").value,
+                        10
+                    );
+
+                    if (itemName && itemCount > 0) {
+                        const tableBody = document.querySelector(
+                            "#inventory-table tbody"
+                        );
+                        const existingRow = Array.from(tableBody.rows).find(
+                            (row) => row.cells[0].textContent === itemName
+                        );
+
+                        if (existingRow) {
+                            const countCell = existingRow.cells[1];
+                            countCell.textContent =
+                                parseInt(countCell.textContent, 10) + itemCount;
+                        } else {
+                            const row = document.createElement("tr");
+                            row.innerHTML = `
+                    <td>${itemName}</td>
+                    <td>${itemCount}</td>
+                    <td class="inventory-actions">
+                        <button class="add-button">Add</button>
+                        <button class="remove-button">Remove</button>
+                    </td>
+                `;
+                            tableBody.appendChild(row);
+                        }
+
+                        saveInventory();
+
+                        document.getElementById("inventory-item").value = "";
+                        document.getElementById("inventory-count").value = "1";
+                    }
+                });
+
+            function saveInventory() {
+                const rows = inventoryTableBody.querySelectorAll("tr");
+                const inventory = [];
+                rows.forEach((row) => {
+                    const itemName = row.cells[0].textContent;
+                    const itemCount = row.cells[1].textContent;
+                    inventory.push({ itemName, itemCount });
+                });
+                localStorage.setItem("inventory", JSON.stringify(inventory));
+            }
+
+            function loadInventory() {
+                const savedInventory = localStorage.getItem("inventory");
+                if (savedInventory) {
+                    const inventory = JSON.parse(savedInventory);
+                    inventory.forEach((item) => {
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                    <td>${item.itemName}</td>
+                    <td>${item.itemCount}</td>
+                    <td class="inventory-actions">
+                        <button class="add-button">Add</button>
+                        <button class="remove-button">Remove</button>
+                    </td>
+                `;
+                        inventoryTableBody.appendChild(row);
+                    });
+                }
+            }
+
+            inventoryTableBody.addEventListener("click", function (e) {
+                if (e.target.classList.contains("remove-button")) {
+                    const row = e.target.closest("tr");
+                    const countCell = row.cells[1];
+                    let currentValue = parseInt(countCell.textContent, 10);
+                    if (currentValue > 1) {
+                        countCell.textContent = currentValue - 1;
+                    } else {
+                        row.remove();
+                    }
+
+                    saveInventory();
+                }
+
+                if (e.target.classList.contains("add-button")) {
+                    const row = e.target.closest("tr");
+                    const countCell = row.cells[1];
+                    countCell.textContent = parseInt(countCell.textContent, 10) + 1;
+
+                    saveInventory();
+                }
+            });
+        });
+
+// Variable to store geolocation
+let storedLocation = null;
+
+// Function to get and store location
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const { latitude, longitude } = position.coords;
+                storedLocation = { latitude, longitude };
+                alert(`Location stored: [${latitude}, ${longitude}]`);
+            },
+            (error) => {
+                console.error("Error getting geolocation: ", error);
+                alert("Unable to retrieve location. Please check your GPS settings.");
+            },
+            {
+                enableHighAccuracy: true,
+                maximumAge: 0,
+            }
+        );
+    } else {
+        alert("Geolocation is not supported by your browser.");
+    }
+}
+
+// Modified sendMessage function
+function sendMessage(event) {
+    var action = document.getElementById("action-select").value;
+    var message = document.getElementById("input-message").value;
+    var input2 = document.getElementById("input-field-2").value;
+    var input3 = document.getElementById("input-field-3").value;
+    var input4 = document.getElementById("input-field-4").value;
+
+    var messageText = `A: ${action}, N: ${message}, Add: ${input2}, Itm: ${input3}, Qty: ${input4}`;
+    var displayText = `Action : ${action}\n, Name : ${message}\n, Address : ${input2}\n, Items : ${input3}\n, Quantity : ${input4}`;
+
+    // Include stored location if available
+    if (storedLocation) {
+        const { latitude, longitude } = storedLocation;
+        messageText += `, Geo: [${latitude}, ${longitude}]`;
+        displayText += `\nGeolocation: [${latitude}, ${longitude}]`;
+    } else {
+        displayText += `\nGeolocation: Not provided`;
+    }
+
+    sendToServer(messageText, displayText);
+}
+
+function sendToServer(messageText, displayText) {
+    if (messageText.trim() !== "") {
+        addMessage(displayText, "sent");
+        websocket.send(messageText);
+        document.getElementById("action-select").value = "request"; // Reset to default
+        document.getElementById("input-message").value = "";
+        document.getElementById("input-field-2").value = "";
+        document.getElementById("input-field-3").value = "";
+        document.getElementById("input-field-4").value = "";
+    }
+}
+
+// Add event listener to "Get Location" button
+document.addEventListener("DOMContentLoaded", function () {
+    document
+        .getElementById("Get-location-button")
+        .addEventListener("click", getLocation);
+});
+
+
+
+
+        function addMessage(text, type) {
+            const chatWindow = document.getElementById("message-window");
+            const messageElement = document.createElement("div");
+            messageElement.classList.add("message", type);
+            messageElement.textContent = text;
+
+            chatWindow.appendChild(messageElement);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        let mediaRecorder;
+        let audioChunks = [];
+        let isRecording = false;
+
+        function toggleRecording() {
+            if (isRecording) {
+                stopRecording();
+            } else {
+                startRecording();
+            }
+        }
+
+        function startRecording() {
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                websocket.send("mic on");
+                navigator.mediaDevices
+                    .getUserMedia({ audio: { sampleRate: 22050 } })
+                    .then((stream) => {
+                        const options = {
+                            mimeType: "audio/webm;codecs=opus",
+                            bitsPerSecond: 8000,
+                        };
+                        try {
+                            mediaRecorder = new MediaRecorder(stream, options);
+                        } catch (e) {
+                            console.warn(
+                                "Failed to create MediaRecorder with options, falling back to default:",
+                                e
+                            );
+                            mediaRecorder = new MediaRecorder(stream);
+                        }
+                        mediaRecorder.ondataavailable = (event) => {
+                            audioChunks.push(event.data);
+                            if (mediaRecorder.state === "inactive") {
+                                const audioBlob = new Blob(audioChunks, {
+                                    type: "audio/webm",
+                                });
+                                splitAudioIntoChunks(audioBlob);
+                                audioChunks = [];
+                            }
+                        };
+                        mediaRecorder.start();
+                        isRecording = true;
+                        
+                    })
+                    .catch((error) => {
+                        console.error("Error accessing microphone:", error);
+                    });
+            } else {
+                console.error("getUserMedia not supported on your browser!");
+            }
+        }
+
+        function startRecording2() {
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices
+                    .getUserMedia({ audio: { sampleRate: 22050 } })
+                    .then((stream) => {
+                        const options = {
+                            mimeType: "audio/webm;codecs=opus",
+                            bitsPerSecond: 8000,
+                        };
+                        try {
+                            mediaRecorder = new MediaRecorder(stream, options);
+                        } catch (e) {
+                            console.warn(
+                                "Failed to create MediaRecorder with options, falling back to default:",
+                                e
+                            );
+                            mediaRecorder = new MediaRecorder(stream);
+                        }
+                        mediaRecorder.ondataavailable = (event) => {
+                            audioChunks.push(event.data);
+                            if (mediaRecorder.state === "inactive") {
+                                const audioBlob = new Blob(audioChunks, {
+                                    type: "audio/webm",
+                                });
+                                splitAudioIntoChunks(audioBlob);
+                                audioChunks = [];
+                            }
+                        };
+                        mediaRecorder.start();
+                        isRecording = true;
+                        
+                    })
+                    .catch((error) => {
+                        console.error("Error accessing microphone:", error);
+                    });
+            } else {
+                console.error("getUserMedia not supported on your browser!");
+            }
+        }
+
+        function stopRecording() {
+            websocket.send("mic off");
+            mediaRecorder.stop();
+            isRecording = false;
+           
+        }
+
+        function stopRecording2() {
+            mediaRecorder.stop();
+            isRecording = false;
+            
+        }
+
+        function splitAudioIntoChunks(audioBlob) {
+            const CHUNK_SIZE = 240;
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                const arrayBuffer = event.target.result;
+                const bytes = new Uint8Array(arrayBuffer);
+                const chunks = [];
+
+                for (let i = 0; i < bytes.length; i += CHUNK_SIZE) {
+                    const chunk = bytes.slice(i, i + CHUNK_SIZE);
+                    chunks.push(chunk);
+                }
+
+                var waitTime = chunks.length * 1000 + 5000; // 1 second per chunk + 5 seconds
+                console.log(Wait time: ${waitTime / 1000} seconds); // Log the wait time in seconds
+
+                showOverlay(waitTime);
+
+                setTimeout(() => {
+                    reconstructAndPlayAudio(chunks);
+                }, waitTime);
+            };
+            reader.readAsArrayBuffer(audioBlob);
+        }
+
+        function showOverlay(waitTime) {
+            const overlay = document.getElementById("overlay");
+            overlay.classList.add("show");
+            setTimeout(() => {
+                overlay.classList.remove("show");
+            }, waitTime);
+        }
+
+        function reconstructAndPlayAudio(chunks) {
+            const concatenatedChunks = new Uint8Array(
+                chunks.reduce((acc, chunk) => acc + chunk.length, 0)
+            );
+            let offset = 0;
+            chunks.forEach((chunk) => {
+                concatenatedChunks.set(chunk, offset);
+                offset += chunk.length;
+            });
+
+            const blob = new Blob([concatenatedChunks], { type: "audio/webm" });
+            const audioUrl = URL.createObjectURL(blob);
+
+            addAudioMessage(blob, "received");
+        }
+
+        function addAudioMessage(blob, type) {
+            const chatWindow = document.getElementById("message-window");
+            const messageElement = document.createElement("div");
+            messageElement.classList.add("message", type);
+
+            const audioElement = document.createElement("audio");
+            audioElement.controls = true;
+            audioElement.src = URL.createObjectURL(blob);
+
+            messageElement.appendChild(audioElement);
+            chatWindow.appendChild(messageElement);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            loadNews();
+
+            document
+                .getElementById("toggle-news-form")
+                .addEventListener("click", toggleNewsForm);
+            document
+                .getElementById("add-news-button")
+                .addEventListener("click", addNews);
+        });
+
+        function toggleNewsForm() {
+            const newsForm = document.getElementById("news-form");
+            newsForm.style.display =
+                newsForm.style.display === "none" ? "flex" : "none";
+        }
+
+        function addNews() {
+            const name = document.getElementById("news-name").value;
+            const address = document.getElementById("news-address").value;
+            const content = document.getElementById("news-content").value;
+
+            if (
+                name.trim() !== "" &&
+                address.trim() !== "" &&
+                content.trim() !== ""
+            ) {
+                const newsContainer = document.getElementById("news-container");
+                const newsItem = document.createElement("div");
+                newsItem.classList.add("news-item");
+
+                newsItem.innerHTML = `
+            <div><strong>Name:</strong> ${name}</div>
+            <div><strong>Address:</strong> ${address}</div>
+            <div><strong>News:</strong> ${content}</div>
+            <div class="status">Status: Active <span class="dot"></span></div>
+        `;
+
+                newsContainer.appendChild(newsItem);
+
+                saveNews();
+
+                document.getElementById("news-name").value = "";
+                document.getElementById("news-address").value = "";
+                document.getElementById("news-content").value = "";
+                toggleNewsForm();
+            }
+        }
+
+        function saveNews() {
+            const newsItems = [];
+            const newsContainer = document.getElementById("news-container");
+            const newsElements = newsContainer.getElementsByClassName("news-item");
+
+            for (let i = 0; i < newsElements.length; i++) {
+                const item = newsElements[i];
+                const name = item
+                    .querySelector("div:nth-child(1)")
+                    .textContent.replace("Name:", "")
+                    .trim();
+                const address = item
+                    .querySelector("div:nth-child(2)")
+                    .textContent.replace("Address:", "")
+                    .trim();
+                const content = item
+                    .querySelector("div:nth-child(3)")
+                    .textContent.replace("News:", "")
+                    .trim();
+
+                newsItems.push({ name, address, content });
+            }
+
+            localStorage.setItem("news", JSON.stringify(newsItems));
+        }
+
+        function loadNews() {
+            const savedNews = localStorage.getItem("news");
+            if (savedNews) {
+                const newsItems = JSON.parse(savedNews);
+                const newsContainer = document.getElementById("news-container");
+
+                newsItems.forEach((item) => {
+                    const newsItem = document.createElement("div");
+                    newsItem.classList.add("news-item");
+
+                    newsItem.innerHTML = `
+                <div><strong>Name:</strong> ${item.name}</div>
+                <div><strong>Address:</strong> ${item.address}</div>
+                <div><strong>News:</strong> ${item.content}</div>
+                <div class="status">Status: Active <span class="dot"></span></div>
+            `;
+
+                    newsContainer.appendChild(newsItem);
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

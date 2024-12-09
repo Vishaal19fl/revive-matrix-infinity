@@ -288,7 +288,7 @@ const Aggregate = () => {
       
       <div className="active-weather">
   <h3>Active Cyclone at Chennai, Tamil Nadu</h3>
-  <div className="blinking-light"></div>
+  <div className="light1"></div>
 </div>
 
 <style jsx>{`
@@ -315,7 +315,7 @@ const Aggregate = () => {
     font-weight: bold;
   }
 
-  .blinking-light {
+  .light1 {
     width: 23px;
     height: 15px;
     background-color: green;

@@ -124,7 +124,7 @@ console.log(inventoryItems);
       <div className="text-gallery">
         {textArray.map((text, index) => (
           <div key={index} className="text-gallery-item">
-            <div className="blinking-light"></div>
+            <div className="blinking-lights"></div>
             <p className="gallery-text">{text}</p>
           </div>
         ))}

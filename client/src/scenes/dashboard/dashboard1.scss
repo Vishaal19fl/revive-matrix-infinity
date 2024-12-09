@@ -1,86 +1,85 @@
 .marquee-section {
-    width: 110%;
-    height: 45px;
-    margin-top: -15px;
-    margin-left: -40px;
-    overflow: hidden;
-    background: #f0f0f6; // Light gray for neomorphism background
-    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.15), -8px -8px 16px rgba(255, 255, 255, 0.9) !important;
+  width: 110%;
+  height: 45px;
+  margin-top: -15px;
+  margin-left: -40px;
+  overflow: hidden;
+  background: #f0f0f6; /* Light gray for neomorphism background */
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.15), -8px -8px 16px rgba(255, 255, 255, 0.9) !important;
 
-  
-    @media (max-width: 768px) {
-      width: 100%; /* Adjust width for mobile */
-      margin-left: 0; /* Remove negative margin for mobile */
-      height: 40px; /* Slightly smaller height */
-    }
-  
-    @media (max-width: 480px) {
-      height: 35px; /* Further reduce height on smaller screens */
-    }
+  @media (max-width: 768px) {
+    width: 100%; /* Adjust width for mobile */
+    margin-left: 0; /* Remove negative margin for mobile */
+    height: 40px; /* Slightly smaller height */
   }
-  
-  .text-gallery {
-    display: flex;
-    gap: 15px; /* Adjust spacing between text items */
-    overflow: hidden; /* Ensure text doesn't overflow */
-    white-space: nowrap; /* Keep all text on one line */
+
+  @media (max-width: 480px) {
+    height: 35px; /* Further reduce height on smaller screens */
   }
-  
-  .text-gallery-item {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Space between light and text */
-    padding: 10px;
-  
-    @media (max-width: 768px) {
-      gap: 8px; /* Reduce spacing for mobile */
-      padding: 8px; /* Smaller padding on mobile */
-    }
-  
-    @media (max-width: 480px) {
-      gap: 6px; /* Further reduce spacing on very small screens */
-      padding: 6px; /* Adjust padding further */
-    }
+}
+
+.text-gallery {
+  display: flex;
+  gap: 15px; /* Adjust spacing between text items */
+  overflow: hidden; /* Ensure text doesn't overflow */
+  white-space: nowrap; /* Keep all text on one line */
+}
+
+.text-gallery-item {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between light and text */
+  padding: 10px;
+
+  @media (max-width: 768px) {
+    gap: 8px; /* Reduce spacing for mobile */
+    padding: 8px; /* Smaller padding on mobile */
   }
-  
-  .blinking-light {
-    width: 10px;
-    height: 10px;
-    background-color: green;
-    border-radius: 50%;
-    animation: blink 1s infinite;
-  
-    @media (max-width: 768px) {
-      width: 8px; /* Smaller light for mobile */
-      height: 8px;
-    }
-  
-    @media (max-width: 480px) {
-      width: 6px; /* Further reduce size for smaller screens */
-      height: 6px;
-    }
+
+  @media (max-width: 480px) {
+    gap: 6px; /* Further reduce spacing on very small screens */
+    padding: 6px; /* Adjust padding further */
   }
-  
-  @keyframes blink {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
+}
+
+.blinking-lights {
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  border-radius: 50%;
+  animation: blink 1s infinite;
+  margin-bottom: 15px;
+
+  @media (max-width: 768px) {
+    width: 8px; /* Smaller light for mobile */
+    height: 8px;
   }
-  
-  .gallery-text {
-    font-size: 16px; /* Adjust font size */
-    font-weight: 500; /* Adjust font weight */
-    color: #333; /* Adjust text color */
-  
-    @media (max-width: 768px) {
-      font-size: 14px; /* Reduce font size for mobile */
-    }
-  
-    @media (max-width: 480px) {
-      font-size: 12px; /* Further reduce font size for smaller screens */
-    }
+
+  @media (max-width: 480px) {
+    width: 6px; /* Further reduce size for smaller screens */
+    height: 6px;
   }
-  
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.gallery-text {
+  font-size: 16px; /* Adjust font size */
+  font-weight: 500; /* Adjust font weight */
+  color: #333; /* Adjust text color */
+
+  @media (max-width: 768px) {
+    font-size: 14px; /* Reduce font size for mobile */
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px; /* Further reduce font size for smaller screens */
+  }
+}

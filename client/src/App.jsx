@@ -49,6 +49,7 @@ import DirectionsMap from "./pages/directionsMap/DirectionsMap";
 import Team from "./scenes/team/index"
 import RouteMapWithTrafficAndAutocomplete from "./pages/directionsMap/DirectionsMap";
 import { Product } from "./pages/productPage/product";
+import BattalionTable from "./pages/battalionTable/BattalionTable";
 // import MapComponent from "./components/mapRoute/MapRoute";
 function App() {
   const queryClient = new QueryClient();
@@ -253,6 +254,10 @@ function App() {
         {
           path: '/product',
           element: <Product />,
+        },
+        {
+          path: '/battalion-info',
+          element: <BattalionTable />,
         },
         // {
         //   path: '/maproute',

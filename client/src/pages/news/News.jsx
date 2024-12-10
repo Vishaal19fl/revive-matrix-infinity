@@ -25,7 +25,7 @@ const DisasterCard = styled(Card)(({ theme, severity }) => {
   };
 
   return {
-    borderRadius: '15px',
+    borderRadius: '10px',
     position: 'relative',
     overflow: 'visible',
     marginBottom: theme.spacing(3),
@@ -106,14 +106,14 @@ const Dashboard = () => {
       platform: "Twitter",
       content: "Huge flood alert in Chennai. Be prepared!",
       timestamp: "2024-08-22T12:00:00Z",
-      location: { lat: 13.0827, lng: 80.2707 },
+      coordinates: { lat: 13.0827, lng: 80.2707 },
     },
     {
       id: 2,
       platform: "Facebook",
       content: "Heavy rainfall expected tomorrow. Take necessary precautions.",
       timestamp: "2024-08-22T13:00:00Z",
-      location: { lat: 12.8352, lng: 79.7063 },
+      coordinates: { lat: 12.8352, lng: 79.7063 },
     },
   ];
 
@@ -123,7 +123,7 @@ const Dashboard = () => {
       headline: "Flood Warning Issued for Chennai",
       source: "Local News",
       timestamp: "2024-08-22T11:00:00Z",
-      location: { lat: 12.8333, lng: 80.1833 },
+      coordinates: { lat: 12.8333, lng: 80.1833 },
     },
     {
       id: 2,

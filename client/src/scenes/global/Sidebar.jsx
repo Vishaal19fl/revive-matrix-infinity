@@ -21,6 +21,7 @@ import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 
 
 
+
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -186,6 +187,13 @@ const Sidebar = () => {
               title="News"
               to="/news"
               icon={<ReceiptOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="View Reports"
+              to="/view-reports"
+              icon={<PersonOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />

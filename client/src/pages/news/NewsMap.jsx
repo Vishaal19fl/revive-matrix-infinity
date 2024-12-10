@@ -7,8 +7,8 @@ import './NewsMap.scss'; // Import the SCSS file
 const NewsMap = ({ newsItems }) => {
   const extractCoordinates = (item) => {
     return {
-      lat: item.location?.lat || 0,
-      lng: item.location?.lng || 0,
+      lat: item.coordinates?.lat || 0,
+      lng: item.coordinates?.lng || 0,
     };
   };
 
@@ -38,7 +38,7 @@ const NewsMap = ({ newsItems }) => {
                 }
               >
                 <Popup className="popup-content">
-                  <strong>{data.headline || data.content}</strong>
+                  <strong>{data.headline || data.content || data.data}</strong>
                   <br />
                   <em>{new Date(data.timestamp).toLocaleString()}</em>
                   <br />

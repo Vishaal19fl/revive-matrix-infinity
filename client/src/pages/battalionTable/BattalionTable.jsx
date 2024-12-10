@@ -10,7 +10,7 @@ const BattalionTable = () => {
 
   const columns = [
     { field: "unit", headerName: "Unit", flex: 1 },
-    { field: "address", headerName: "Addrss", flex: 2 },
+    { field: "address", headerName: "Address", flex: 2 },
     { field: "commandingOfficer", headerName: "Commanding Officer", flex: 1.5 },
     { field: "designation", headerName: "Designation", flex: 1 },
     { field: "telephone", headerName: "Telephone No.", flex: 1.5 },

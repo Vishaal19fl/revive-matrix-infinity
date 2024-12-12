@@ -8,4 +8,4 @@ const SpecialReportSchema = new Schema({
   
 });
 
-export default mongoose.model('specialreport', SpecialReportSchema, "specialreport");
+export default mongoose.model('specialreportfinal', SpecialReportSchema, "specialreportfinal");

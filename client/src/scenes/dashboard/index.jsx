@@ -102,8 +102,27 @@ const [isBlinking, setIsBlinking] = useState(false);
 
     setTimeout(() => {
       setIsBlinking(false);
-    }, 8000); // Red blink duration in milliseconds
+    }, 8000); 
+
+    
   };
+
+  useEffect(() => {
+    const handleMiddleClick = (event) => {
+      if (event.button === 1) {
+        event.preventDefault(); // Prevents default browser behavior for middle-click
+        handleRefresh();
+      }
+    };
+
+    // Attach event listener
+    window.addEventListener('mousedown', handleMiddleClick);
+
+    // Clean up event listener
+    return () => {
+      window.removeEventListener('mousedown', handleMiddleClick);
+    };
+  }, [ocrData]);
 console.log(ocrData[0])
 const handleClosePopup = () => setShowPopup(false);
   
@@ -284,9 +303,9 @@ const handleClosePopup = () => setShowPopup(false);
         </Box> */}
 
 <Box mt={isMobile ? '20px' : '0'}>
-<Button
+{/* <Button
     onClick={handleRefresh}
-    startIcon={<RefreshIcon />}
+   
     sx={{
       marginRight: "10px",
       marginBottom:"20px",
@@ -297,8 +316,8 @@ const handleClosePopup = () => setShowPopup(false);
       padding: "10px 20px",
     }}
   >
-    Refresh
-  </Button>
+   
+  </Button> */}
   {/* <Button
     onClick={() => navigate('/donationpage')}
     sx={{
@@ -451,7 +470,7 @@ const handleClosePopup = () => setShowPopup(false);
   }}
 >
           <StatBox
-            title="14"
+            title="16"
             subtitle="Number of Rescue Agencies"
             progress="0.80"
             increase="+43%"
@@ -762,7 +781,7 @@ const handleClosePopup = () => setShowPopup(false);
               color={colors.greenAccent[500]}
               sx={{ mt: "15px" }}
             >
-              {chartData[0].count} High Severity and {inventoryItems.length} items in inventory
+              {chartData[0].count} High Severity and {chartData[1].count} medium severity
             </Typography>
             <Typography></Typography>
           </Box>
@@ -855,7 +874,7 @@ const handleClosePopup = () => setShowPopup(false);
         right: "15px",
         px: 2,
         py: 0.5,
-        fontSize:"13px",
+        fontSize: "13px",
         borderRadius: "10px",
         backgroundColor: "rgba(255, 0, 0, 0.8)",
         color: "#fff",
@@ -867,7 +886,7 @@ const handleClosePopup = () => setShowPopup(false);
         },
       }}
     >
-      Severity: High
+      Severity: {ocrData[0]?.severity || "Unknown"}
     </Box>
 
     <Typography id="popup-title" variant="h5" component="h2">
@@ -875,9 +894,14 @@ const handleClosePopup = () => setShowPopup(false);
     </Typography>
     <Box id="popup-description" mt={2}>
       {ocrData.length ? (
-        <Typography>
-          {ocrData[0]?.data || "No data available"}
-        </Typography>
+        <>
+          <Typography><strong>Location:</strong> {ocrData[0]?.location || "No location available"}</Typography>
+          <Typography><strong>Disaster Type:</strong> {ocrData[0]?.disaster_type || "No disaster type available"}</Typography>
+          <Typography><strong>News Source:</strong> {ocrData[0]?.news_source || "No news source available"}</Typography>
+          <Typography><strong>Timestamp:</strong> {ocrData[0]?.timestamp || "No timestamp available"}</Typography>
+          <Typography><strong>Coordinates:</strong> Lat: {ocrData[0]?.coordinates?.lat || "N/A"}, Lng: {ocrData[0]?.coordinates?.lng || "N/A"}</Typography>
+         
+        </>
       ) : (
         <Typography>No data available</Typography>
       )}
@@ -890,6 +914,7 @@ const handleClosePopup = () => setShowPopup(false);
     </Button>
   </Box>
 </Modal>
+
 
 
     </Box>

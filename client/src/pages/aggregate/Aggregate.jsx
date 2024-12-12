@@ -101,7 +101,11 @@ const Aggregate = () => {
   const [weatherData, setWeatherData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchedWeather, setSearchedWeather] = useState(null);
+  const [isMinimized, setIsMinimized] = useState(false);
 
+  const toggleMinimize = () => {
+    setIsMinimized(prevState => !prevState);
+  };
   useEffect(() => {
     // Fetch weather data for all states and cities
     const fetchWeatherData = async () => {
@@ -287,17 +291,24 @@ const Aggregate = () => {
 
       
       <div className="active-weather">
-  <h3>Active Cyclone at Chennai, Tamil Nadu</h3>
-  <div className="light1"></div>
-</div>
+      {!isMinimized && (
+        <>
+          <h3>Active Cyclone at Chennai, Tamil Nadu</h3>
+          <div className="light1"></div>
+        </>
+      )}
+      <button className="minimize-btn" onClick={toggleMinimize}>
+        {isMinimized ? 'Expand' : 'Minimize'}
+      </button>
+    </div>
 
-<style jsx>{`
+    <style jsx>{`
   .active-weather {
     position: fixed;
-    display:flex;
-    width:100%;
-    gap:15px;
-    flex-direction:row;
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    flex-direction: row;
     bottom: 20px;
     z-index: 99999;
     left: 20px;
@@ -306,6 +317,7 @@ const Aggregate = () => {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     width: 250px;
+    transition: all 0.3s ease;
   }
 
   .active-weather h3 {
@@ -324,6 +336,21 @@ const Aggregate = () => {
     margin-top: 3px;
   }
 
+  .minimize-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #222;
+    border: none;
+    color:#fff;
+    
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
   @keyframes blink {
     0% {
       opacity: 1;
@@ -337,6 +364,18 @@ const Aggregate = () => {
     .active-weather {
       display: none;
     }
+  }
+
+  /* When minimized, only the button and a smaller container is shown */
+  .active-weather.minimized {
+    height: 40px;
+    padding: 5px;
+    justify-content: center;
+  }
+
+  .active-weather.minimized h3,
+  .active-weather.minimized .light1 {
+    display: none;
   }
 `}</style>
 

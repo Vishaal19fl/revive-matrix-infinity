@@ -90,19 +90,19 @@ function Navbar() {
           <Link className="link" to="/">
           {currentUser?.isSeller && <span>Dashboard</span>}
                   </Link>
-          <Link className="link" to="/viewInventory">
-                    {currentUser?.isSeller && <span>Inventory</span>}
+          {/* <Link className="link" to="/viewInventory">
+                    {!currentUser?.isSeller && <span>Inventory</span>}
                   </Link>
                   <Link className="link" to="/orders">
-          {currentUser?.isSeller && <span>Donations</span>}
-                  </Link>
+          {!currentUser?.isSeller && <span>Donations</span>}
+                  </Link> */}
           <Link className="link" to="/aggregated">
           
           <span>View Maps</span>
         </Link>
        
 
-           <Link className="link" to='/chatbot'>{!currentUser?.isSeller && <span>Chat with us</span>}</Link>
+           <Link className="link" to='/chatbot'>{currentUser?.isSeller && <span>Chat</span>}</Link>
            <Link className="link" to='/status'>{currentUser?.isLogistics && <span>Track Status</span>}</Link>  
            <Link className="link" to='/status'>{currentUser?.isLogistics && <span>Report an Event</span>}</Link>        
           

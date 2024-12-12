@@ -161,7 +161,7 @@ const Aggregate = () => {
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=${WEATHER_API_KEY}&units=metric`
       );
-      const { weather, main } = response.data;
+      const { weather, main, wind } = response.data;
       setSearchedWeather({
         name: searchTerm,
         location: [response.data.coord.lat, response.data.coord.lon],

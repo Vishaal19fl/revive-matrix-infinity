@@ -54,6 +54,12 @@ import LeafletWeatherDisaster from "./pages/aggregate/LeafletWeather";
 import MapWithSlider from "./pages/aggregate/LeafletWeather";
 import MapComparison from "./pages/aggregate/LeafletWeather";
 import ViewReport from "./pages/viewReports/ViewReports";
+import DisasterSummary from "./pages/news/DisasterSummary";
+import DisasterTable from "./pages/aggregate/DisasterTable";
+import Calendar from "./scenes/calendar/calendar";
+import Reports from "./pages/aggregate/Reports";
+import DisasterProgressionReport from "./pages/aggregate/RangeReport";
+import MapPage from "./scenes/dashboard/MapPage";
 // import MapComponent from "./components/mapRoute/MapRoute";
 function App() {
   const queryClient = new QueryClient();
@@ -270,6 +276,30 @@ function App() {
         {
           path: '/view-reports',
           element: <ViewReport />,
+        },
+        {
+          path: '/summary',
+          element: <DisasterSummary />,
+        },
+        {
+          path: '/tabledata',
+          element: <DisasterTable />,
+        },
+        {
+          path: '/calendar',
+          element: <Calendar />,
+        },
+        {
+          path: '/reports',
+          element: <Reports />,
+        },
+        {
+          path: '/reportrange',
+          element: <DisasterProgressionReport />,
+        },
+        {
+          path: '/mappage',
+          element: <MapPage />,
         },
         // {
         //   path: '/maproute',

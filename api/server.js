@@ -16,6 +16,8 @@ import LogisticsRoutes from "./routes/logistics.route.js";
 import newsRoutes from "./routes/news.route.js"
 import loraRoutes from "./routes/lora.route.js"
 import ocrDataRoute from "./routes/ocrData.route.js"
+import dailyreportRoute from "./routes/dailyreport.route.js"
+import specialreportRoute from "./routes/totalreport.route.js"
 
 const app = express();
 dotenv.config();
@@ -47,6 +49,8 @@ app.use("/api/logistics", LogisticsRoutes);
 app.use("/api/news", newsRoutes);
 app.use("/api/loradata", loraRoutes);
 app.use("/api/ocrdata", ocrDataRoute);
+app.use("/api/dailyreport", dailyreportRoute);
+app.use("/api/totalreport", specialreportRoute);
 
 
 app.get('/api/orders', async (req, res) => {

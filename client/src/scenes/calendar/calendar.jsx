@@ -1,9 +1,11 @@
 import { useState } from "react";
-import FullCalendar, { formatDate } from "@fullcalendar/react";
+import FullCalendar from "@fullcalendar/react";
+import { formatDate } from "@fullcalendar/core/index.js";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from "@fullcalendar/list";
+
 import {
   Box,
   List,
@@ -14,6 +16,7 @@ import {
 } from "@mui/material";
 import Header from "../../components/Header";
 import { tokens } from "../../theme";
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 
 const Calendar = () => {
   const theme = useTheme();
@@ -32,6 +35,7 @@ const Calendar = () => {
         start: selected.startStr,
         end: selected.endStr,
         allDay: selected.allDay,
+        location: selected.location // Ensure location is passed correctly
       });
     }
   };
@@ -39,7 +43,7 @@ const Calendar = () => {
   const handleEventClick = (selected) => {
     if (
       window.confirm(
-        `Are you sure you want to delete the event '${selected.event.title}'`
+        `Are you sure you want to delete the event '${selected.event.title}' at '${selected.event.location}'`
       )
     ) {
       selected.event.remove();
@@ -72,13 +76,18 @@ const Calendar = () => {
                 <ListItemText
                   primary={event.title}
                   secondary={
-                    <Typography>
-                      {formatDate(event.start, {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                      })}
-                    </Typography>
+                    <>
+                      <Typography>
+                        {formatDate(event.start, {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        })}
+                      </Typography>
+                      <Typography>
+                        Location: {event.extendedProps.location}
+                      </Typography>
+                    </>
                   }
                 />
               </ListItem>
@@ -90,12 +99,7 @@ const Calendar = () => {
         <Box flex="1 1 100%" ml="15px">
           <FullCalendar
             height="75vh"
-            plugins={[
-              dayGridPlugin,
-              timeGridPlugin,
-              interactionPlugin,
-              listPlugin,
-            ]}
+            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
             headerToolbar={{
               left: "prev,next today",
               center: "title",
@@ -112,14 +116,40 @@ const Calendar = () => {
             initialEvents={[
               {
                 id: "12315",
-                title: "All-day event",
-                date: "2022-09-14",
+                title: "Karthigai Deepam (Dec 13, 2024)",
+                date: "2024-12-13",
+                location: "Murugan Temples, Tamil Nadu",
+                details: "Large crowds gather for rituals and processions, including pilgrimages.",
               },
               {
                 id: "5123",
-                title: "Timed event",
-                date: "2022-09-28",
+                title: "Magnetic Fields Festival (Dec 6–8, 2024)",
+                date: "2024-12-06",
+                location: "Alsisar, Rajasthan",
+                details: "Attracts thousands for music performances, adventure sports, and parties.",
               },
+              {
+                id: "54321",
+                title: "Perumthitta Tharavad (Dec 2024)",
+                date: "2024-12-01",
+                location: "Kasaragod, Kerala",
+                details: "Large crowds gather for Theyyam dance performances, increasing risk of fire hazards.",
+              },
+              {
+                id: "6789",
+                title: "Indian Airforce Show (Oct 6, 2024)",
+                date: "2024-10-6",
+                location: "Chennai",
+                details: "Sheer number of pilgrims increases the risk of accidents and stampedes.",
+              },
+              {
+                id: "98765",
+                title: "Kurukshetra Festival (Dec 11, 2024)",
+                date: "2024-12-11",
+                location: "Kurukshetra, Haryana",
+                details: "Sheer number of pilgrims increases the risk of accidents and stampedes.",
+              },
+              
             ]}
           />
         </Box>

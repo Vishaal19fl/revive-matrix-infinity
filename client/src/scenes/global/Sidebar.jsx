@@ -18,8 +18,10 @@ import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import AddIcon from "@mui/icons-material/Add";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
+import SummarizeOutlinedIcon from '@mui/icons-material/SummarizeOutlined';
+import TrafficOutlinedIcon from '@mui/icons-material/TrafficOutlined';
 
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -140,16 +142,31 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
+              title="View Road Blocks"
+              to="/direction"
+              icon={<TrafficOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            {/* <Item
               title="Manage Team"
               to="/team"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
             <Item
               title="View Battalions Info"
               to="/battalion-info"
               icon={<MilitaryTechOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+<Item
+              title="Calendar"
+              to="/calendar"
+              icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -191,12 +208,27 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
+              title="Get Daily Report"
+              to="/reports"
+              icon={<AssignmentTurnedInOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Total Report"
+              to="/reportrange"
+              icon={<SummarizeOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            
+            {/* <Item
               title="View Reports"
               to="/view-reports"
               icon={<PersonOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
 
             {/* <Typography
               variant="h6"

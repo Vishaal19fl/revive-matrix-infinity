@@ -1,63 +1,115 @@
 .marquee-section {
-  width: 110%;
-  height: 45px;
-  margin-top: -15px;
-  margin-left: -40px;
+  width: 120%;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  margin-left: -30px;
   overflow: hidden;
-  background: #f0f0f6; /* Light gray for neomorphism background */
-  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.15), -8px -8px 16px rgba(255, 255, 255, 0.9) !important;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #e3e3e3, #ffffff); /* Medium gray to white */
+ /* Bright red for breaking news theme */
+  color: #171717; /* White text color */
+  position: relative;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
-    width: 100%; /* Adjust width for mobile */
-    margin-left: 0; /* Remove negative margin for mobile */
-    height: 40px; /* Slightly smaller height */
+    height: 50px; /* Adjust height for mobile */
   }
 
   @media (max-width: 480px) {
-    height: 35px; /* Further reduce height on smaller screens */
+    height: 40px; /* Further reduce height on small screens */
+  }
+}
+
+.breaking-news-label {
+  background: #ff4c4c; /* Red label for "Breaking News" */
+  color: #0f0f0f; /* White text */
+  font-size: 18px;
+  font-weight: bold;
+  padding: 7px 15px;
+  text-transform: uppercase;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+
+  @media (max-width: 768px) {
+    font-size: 14px; /* Adjust font size for mobile */
+    padding: 0 10px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px; /* Further reduce font size for smaller screens */
+    padding: 0 8px;
   }
 }
 
 .text-gallery {
   display: flex;
-  gap: 15px; /* Adjust spacing between text items */
-  overflow: hidden; /* Ensure text doesn't overflow */
-  white-space: nowrap; /* Keep all text on one line */
+  gap: 20px;
+  
+  white-space: nowrap; /* Keep text in a single line */
+  
+
+  @media (max-width: 768px) {
+    gap: 15px;
+    animation-duration: 8s; /* Faster scrolling for smaller screens */
+  }
+
+  @media (max-width: 480px) {
+    gap: 10px;
+    animation-duration: 6s; /* Even faster scrolling */
+  }
 }
 
 .text-gallery-item {
   display: flex;
   align-items: center;
-  gap: 10px; /* Space between light and text */
-  padding: 10px;
+  gap: 10px;
+  padding: 0 20px;
+  
 
   @media (max-width: 768px) {
-    gap: 8px; /* Reduce spacing for mobile */
-    padding: 8px; /* Smaller padding on mobile */
+    padding: 0 15px;
   }
 
   @media (max-width: 480px) {
-    gap: 6px; /* Further reduce spacing on very small screens */
-    padding: 6px; /* Adjust padding further */
+    padding: 0 10px;
   }
 }
 
 .blinking-lights {
-  width: 10px;
-  height: 10px;
-  background-color: green;
+  width: 12px;
+  height: 12px;
+  background-color: #00ff00; /* Bright green for the light */
   border-radius: 50%;
   animation: blink 1s infinite;
-  margin-bottom: 15px;
 
   @media (max-width: 768px) {
-    width: 8px; /* Smaller light for mobile */
-    height: 8px;
+    width: 10px;
+    height: 10px;
   }
 
   @media (max-width: 480px) {
-    width: 6px; /* Further reduce size for smaller screens */
-    height: 6px;
+    width: 8px;
+    height: 8px;
+  }
+}
+
+.gallery-text {
+  font-size: 20px;
+  
+  font-weight: bold;
+  color: #fff; /* White text for visibility */
+  text-transform: uppercase;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
   }
 }
 
@@ -70,16 +122,4 @@
   }
 }
 
-.gallery-text {
-  font-size: 16px; /* Adjust font size */
-  font-weight: 500; /* Adjust font weight */
-  color: #333; /* Adjust text color */
 
-  @media (max-width: 768px) {
-    font-size: 14px; /* Reduce font size for mobile */
-  }
-
-  @media (max-width: 480px) {
-    font-size: 12px; /* Further reduce font size for smaller screens */
-  }
-}

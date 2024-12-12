@@ -168,7 +168,7 @@ const DirectionsMap = () => {
     // Initialize the map
     const initMap = () => {
       const map = new window.google.maps.Map(mapRef.current, {
-        center: { lat: 12.9716, lng: 80.2760 }, // Chennai, India
+        center: { lat: 20.2961, lng: 85.8245 }, // Chennai, India
         zoom: 10,
       });
 
@@ -206,7 +206,7 @@ const DirectionsMap = () => {
 
     // Load Google Maps script
     const script = document.createElement('script');
-    script.src = `https://maps.gomaps.pro/maps/api/js?key=AlzaSyojzQpahT8hkoehGfi60uczLqgYJfmyC8P&libraries=geometry,places&callback=initMap`;
+    script.src = `https://maps.gomaps.pro/maps/api/js?key=AlzaSyU90DpF7dwn-eFgHEAQbZNYb5kjz1u8G-u&libraries=geometry,places&callback=initMap`;
     script.async = true;
     script.defer = true;
     window.initMap = initMap;

@@ -432,108 +432,61 @@ export const mockPieData = [
 
 export const mockLineData = [
   {
-    id: "inventorySet1",
-    color: tokens("dark").greenAccent[500],
-    data: [
-      {
-        x: "dal",
-        y: 4,
-      },
-      {
-        x: "medicine",
-        y: 5,
-      },
-      {
-        x: "Milk",
-        y: 6,
-      },
-      {
-        x: "Carrot",
-        y: 1,
-      },
-      {
-        x: "Tomato",
-        y: 16,
-      },
-      {
-        x: "Onion",
-        y: 2,
-      },
-      {
-        x: "Water bottle",
-        y: 4,
-      },
-    ],
-  },
-  {
-    id: "inventorySet2",
+    id: "Flood",
     color: tokens("dark").blueAccent[500],
     data: [
       {
-        x: "dal",
-        y: 3,
-      },
-      {
-        x: "medicine",
-        y: 7,
-      },
-      {
-        x: "Milk",
-        y: 2,
-      },
-      {
-        x: "Carrot",
-        y: 3,
-      },
-      {
-        x: "Tomato",
+        x: "Low",
         y: 10,
       },
       {
-        x: "Onion",
-        y: 5,
+        x: "Medium",
+        y: 15,
       },
       {
-        x: "Water bottle",
-        y: 7,
+        x: "High",
+        y: 20,
       },
     ],
   },
   {
-    id: "inventorySet3",
+    id: "Earthquake",
     color: tokens("dark").redAccent[500],
     data: [
       {
-        x: "dal",
+        x: "Low",
         y: 5,
       },
       {
-        x: "medicine",
-        y: 3,
-      },
-      {
-        x: "Milk",
-        y: 8,
-      },
-      {
-        x: "Carrot",
-        y: 2,
-      },
-      {
-        x: "Tomato",
+        x: "Medium",
         y: 12,
       },
       {
-        x: "Onion",
-        y: 4,
+        x: "High",
+        y: 25,
+      },
+    ],
+  },
+  {
+    id: "Cyclone",
+    color: tokens("dark").greenAccent[500],
+    data: [
+      {
+        x: "Low",
+        y: 8,
       },
       {
-        x: "Water bottle",
-        y: 6,
+        x: "Medium",
+        y: 10,
+      },
+      {
+        x: "High",
+        y: 18,
       },
     ],
   },
 ];
+
 
 export const mockGeographyData = [
   {

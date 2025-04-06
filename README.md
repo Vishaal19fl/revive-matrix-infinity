@@ -40,15 +40,12 @@ Disaster response agencies in India lack effective systems to gather and act on 
 ## 🔧 Technical Architecture
 ![Revive architecture](revive-architecture.png)
 
-- **Hardware**: ESP32, LoRa modules, OLED displays, hand crank generators
-- **Networking**: LoRa mesh, Soft AP AsyncServer for local access
-- **Software**: 
-  - Web server hosted on device
-  - Mobile interface for users
-  - Supervision dashboard for agencies
-- **AI**: 
-  - Disaster type and severity classification 
-  - Logistics route optimization
+- ⚛️ **React.js** – For building dynamic and responsive user interfaces for the web dashboard and mobile-friendly views.
+- 🌐 **Express.js** – Backend API server to handle requests, integrate data pipelines, and manage communication between frontend and database.
+- 🍃 **MongoDB** – NoSQL database to store real-time disaster reports, user requests, news data, and donation records.
+- 🗺️ **Google Maps API** – To visualize disaster locations, live reports, and rescue efforts on an interactive map interface.
+- 🤖 **Gemini AI (by Google)** – For advanced natural language understanding and data extraction from image and videos, and to categorize and tag disaster-related content from social media and news feeds.
+
 
 ---
 

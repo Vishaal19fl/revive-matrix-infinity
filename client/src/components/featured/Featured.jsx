@@ -14,7 +14,7 @@ function Featured() {
     <div className="featured">
       {/* Desktop video */}
       <video autoPlay muted loop playsInline className="background-video desktop">
-        <source src="./img/lifelinevid6.mp4" type="video/mp4" />
+        <source src="./img/lifelinevid7.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       

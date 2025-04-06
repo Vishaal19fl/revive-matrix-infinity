@@ -215,7 +215,7 @@ function Home() {
         <button className="btn1">Register as a Volunteer</button>
       </div>
       <div className="item">
-        <video src="/img/lifelinevid4.mp4" autoPlay muted loop playsInline />
+        <video src="/img/lifelinevid7.mp4" autoPlay muted loop playsInline />
       </div>
     </div>
   </div>

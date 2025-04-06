@@ -3,7 +3,7 @@ import { Box, Button, Chip, IconButton, Typography, useTheme, useMediaQuery, Lis
 import { tokens } from "../../theme";
 import Modal from "@mui/material/Modal";
 import { useContext } from "react";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import newRequest from "../../utils/newRequest";
 import { useQuery } from "@tanstack/react-query";
 import { ColorModeContext } from "../../theme";
@@ -303,8 +303,9 @@ const handleClosePopup = () => setShowPopup(false);
         </Box> */}
 
 <Box mt={isMobile ? '20px' : '0'}>
-{/* <Button
-    onClick={handleRefresh}
+<Link to="/donationpage" className="link">
+<Button
+    
    
     sx={{
       marginRight: "10px",
@@ -316,8 +317,8 @@ const handleClosePopup = () => setShowPopup(false);
       padding: "10px 20px",
     }}
   >
-   
-  </Button> */}
+   Donate
+  </Button></Link>
   {/* <Button
     onClick={() => navigate('/donationpage')}
     sx={{

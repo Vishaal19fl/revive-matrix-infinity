@@ -4,7 +4,7 @@
 
 ## 🚨 Problem Statement
 
-Disaster response agencies in India lack effective systems to gather and act on real-time data from social media, news portals, and crowd-sourced reports. Communication breakdowns and uncoordinated response efforts further delay relief actions.
+Disaster response agencies in India lack effective systems to gather and act on real-time data during disaster times. This inadequacy leads to loss of human life as well as irreparable damage. A Solution is required which enables rescue teams to communicate effectively even during disasters to save lives efficiently.
 
 ## 💡 Our Solution – Revive
 

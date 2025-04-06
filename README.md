@@ -49,7 +49,7 @@ Disaster response agencies in India lack effective systems to gather and act on 
 ---
 
 ## 📸 Screenshots
-![model](revivefront.png)
+![model](model.png)
 ![screenshots1](revive-screenshot-1.png)
 ![screenshots2](revive-screenshot-2.png)
 ![screenshots3](mobile-webserver.png)

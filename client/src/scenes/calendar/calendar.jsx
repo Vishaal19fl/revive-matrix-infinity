@@ -132,6 +132,7 @@ const Calendar = () => {
                 id: "54321",
                 title: "Perumthitta Tharavad (Dec 2024)",
                 date: "2024-12-01",
+                //d
                 location: "Kasaragod, Kerala",
                 details: "Large crowds gather for Theyyam dance performances, increasing risk of fire hazards.",
               },

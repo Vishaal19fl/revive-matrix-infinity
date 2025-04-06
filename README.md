@@ -38,7 +38,7 @@ Disaster response agencies in India lack effective systems to gather and act on 
 ---
 
 ## 🔧 Technical Architecture
-(revive.architecture.png)
+![Revive architecture](revive-architecture.png)
 
 - **Hardware**: ESP32, LoRa modules, OLED displays, hand crank generators
 - **Networking**: LoRa mesh, Soft AP AsyncServer for local access
@@ -47,14 +47,14 @@ Disaster response agencies in India lack effective systems to gather and act on 
   - Mobile interface for users
   - Supervision dashboard for agencies
 - **AI**: 
-  - NLP for text classification
-  - Optical image recognition
-  - Real-time news and social media analysis
+  - Disaster type and severity classification 
+  - Logistics route optimization
 
 ---
 
 ## 📸 Screenshots
-
+![model](revivefront.png)
+![screenshots](screenshots.png)
 
 ---
 

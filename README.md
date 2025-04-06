@@ -54,7 +54,6 @@ Disaster response agencies in India lack effective systems to gather and act on 
 ![screenshots](screenshots.png)
 
 ---
----
 
 **Repository Structure:**
 | Directory   | Description              |
@@ -75,7 +74,7 @@ Disaster response agencies in India lack effective systems to gather and act on 
 
 2. **Install dependencies:**
    ```bash
-   cd memento-gdsc
+   cd revive-matrix-infinity
    npm install
    ```
 

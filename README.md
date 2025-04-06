@@ -54,11 +54,70 @@ Disaster response agencies in India lack effective systems to gather and act on 
 ![screenshots](screenshots.png)
 
 ---
+---
 
-## 📢 Join Us
-Be part of the mission to make disaster response smarter, faster, and more accessible.
+**Repository Structure:**
+| Directory   | Description              |
+| ------------- | ------------------------------------- |
+| /api   | Houses the backend codebase developed with MongoDB and the server side code with express.js. |
+| /client   | Contains the frontend codebase built with React.js. |
+
 
 ---
+
+## Getting Started
+
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Vishaal19fl/revive-matrix-infinity
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   cd memento-gdsc
+   npm install
+   ```
+
+3. **Set up environment variables:**
+   Create a `.env` file in the root directory and add the following:
+   ```
+   PORT=3000
+   MONGO=your-mongodb-uri
+   CLOUDINARY_API_KEY=your-cloudinary-api-key
+   CLOUDINARY_API_SECRET=your-cloudinary-api-secret
+   ```
+
+4. **Start the backend server:**
+   ```bash
+   cd api
+   yarn start
+   ```
+   
+5. **Start the frontend server:**
+   ```bash
+   cd client
+   yarn dev --host
+   ```   
+
+6. **Open your browser:**
+   Navigate to http://localhost:3000 to view the application.
+
+Make sure to replace `your-mongodb-uri`, `your-cloudinary-api-key`, and `your-cloudinary-api-secret` with your actual MongoDB URI and Cloudinary API credentials. This will ensure proper functioning of the application.
+
+---
+
+**Team:**
+| Name      | GitHub Username |
+| -------------- | --------------- |
+| Vishaal Krishna    | @Vishaal19fl    |
+| Sharvesh A R     | @Shxrvxshar7    |
+| Surya Prakash G  | @surya-prakash047 |
+| Vishaal S    | @Vishaal-Sathya    |
+| Mentor     | Rakesh Kumar (@RakeshMahi)  |  
+
+---
+
 
 
 

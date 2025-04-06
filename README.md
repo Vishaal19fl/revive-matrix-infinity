@@ -1,5 +1,4 @@
 # 🌐 Revive – Revolutionizing Disaster Management
-![Revive Banner](banner-placeholder.png)
 
 > A project by Team **Matrix** for the **Google Solutions Challenge**
 

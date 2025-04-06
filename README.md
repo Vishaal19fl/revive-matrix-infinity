@@ -1,6 +1,6 @@
 # 🌐 Revive – Revolutionizing Disaster Management
 
-> A project by Team **Matrix** for the **Google Solutions Challenge**
+> A project by Team **Matrix Infinity** for the **Google Solutions Challenge**
 
 ## 🚨 Problem Statement
 

@@ -115,12 +115,21 @@ const [isBlinking, setIsBlinking] = useState(false);
       }
     };
 
-    // Attach event listener
-    window.addEventListener('mousedown', handleMiddleClick);
+    const handleSlashKey = (event) => {
+      // Check for '/' key (forward slash, key code 191 or event.key === '/')
+      if (event.key === '/' || event.keyCode === 191) {
+        handleRefresh();
+      }
+    };
 
-    // Clean up event listener
+    // Attach event listeners
+    window.addEventListener('mousedown', handleMiddleClick);
+    window.addEventListener('keydown', handleSlashKey);
+
+    // Clean up event listeners
     return () => {
       window.removeEventListener('mousedown', handleMiddleClick);
+      window.removeEventListener('keydown', handleSlashKey);
     };
   }, [ocrData]);
 console.log(ocrData[0])
@@ -132,13 +141,13 @@ const handleClosePopup = () => setShowPopup(false);
   });
 
   useEffect(() => {
-    const fetchNews = async () => {
+     const fetchNews = async () => {
       try {
-        const response = await newRequest.get('/ocrdata'); 
-        console.log('API response:', response.data.ocrData.length); 
-        setOcrData(response.data.ocrData || []); 
+      const response = await newRequest.get('/ocrdata'); 
+      console.log('API response:', response.data); 
+      setOcrData((response.data.ocrData || []).reverse()); // Set to reversed order
       } catch (error) {
-        console.error('Error fetching OCR data:', error);
+      console.error('Error fetching OCR data:', error);
       }
     };
 
@@ -233,7 +242,7 @@ const handleClosePopup = () => setShowPopup(false);
   
 
   return (
-    <Box display="flex">
+    <Box display="flex" style={{overflowX: "hidden"}}>
       {isBlinking && (
         <div
           style={{

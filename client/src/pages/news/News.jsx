@@ -67,11 +67,11 @@ const Dashboard = () => {
   React.useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await newRequest.get('/ocrdata'); 
-        console.log('API response:', response.data); 
-        setOcrData(response.data.ocrData || []); 
+      const response = await newRequest.get('/ocrdata'); 
+      console.log('API response:', response.data); 
+      setOcrData((response.data.ocrData || []).reverse()); // Set to reversed order
       } catch (error) {
-        console.error('Error fetching OCR data:', error);
+      console.error('Error fetching OCR data:', error);
       }
     };
 
